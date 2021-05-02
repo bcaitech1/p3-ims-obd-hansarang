@@ -110,10 +110,11 @@ def train(saved_dir, args, val_every=1):
     optimizer = create_optimizer(args.optimizer, params=model.parameters(
     ), lr=args.lr, weight_decay=args.weight_decay)
     scheduler = create_scheduler(
-        args.scheduler, optimizer=optimizer, T_max=2)
+        args.scheduler, optimizer=optimizer, T_max=10)
 
     best_loss = 9999999
-    print(f'================Training Phase Started================')
+    best_mIoU = 0
+    print('================Training Phase Started================')
 
     for epoch in range(args.num_epochs):
         train_loss_list = []
@@ -135,7 +136,7 @@ def train(saved_dir, args, val_every=1):
             optimizer.zero_grad()
             loss.backward()
             optimizer.step()
-            scheduler.step()
+
             train_loss_list.append(loss.item())
             train_loss = np.mean(train_loss_list)
             # step 주기에 따른 loss 출력
@@ -147,13 +148,17 @@ def train(saved_dir, args, val_every=1):
             })
         # validation 주기에 따른 loss 출력 및 best model 저장
         if (epoch + 1) % val_every == 0:
-            avrg_loss = validation(
+            avrg_loss, mIoU = validation(
                 epoch + 1, model, val_loader, criterion, device)
-            if avrg_loss < best_loss:
+            # if avrg_loss < best_loss:
+            if mIoU > best_mIoU:
                 print('Best performance at epoch: {}'.format(epoch + 1))
                 print('Save model in', saved_dir)
-                best_loss = avrg_loss
-                save_model(model, saved_dir, f"{args.model}_{epoch+1}epoch.pt")
+                # best_loss = avrg_loss
+                best_mIoU = mIoU
+                save_model(
+                    model, saved_dir, f"{args.model}_{epoch+1}epoch_loss_{best_mIoU}_mIoU_{mIoU}.pt")
+        scheduler.step()
 
 
 def validation(epoch, model, data_loader, criterion, device):
@@ -196,7 +201,7 @@ def validation(epoch, model, data_loader, criterion, device):
             "Val mIoU": mIoU,
             "Val Loss": avrg_loss
         })
-    return avrg_loss
+    return avrg_loss, mIoU
 
 
 def save_model(model, saved_dir, file_name):
