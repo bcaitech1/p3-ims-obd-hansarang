@@ -43,8 +43,8 @@ def test(args):
     # best model 불러오기
     checkpoint = torch.load(model_path, map_location=device)
     model.load_state_dict(checkpoint)
-
-    print('Start prediction.')
+    print('Loaded Weight From ckpt')
+    print('================Inference Phase Started================')
     model.eval()
 
     file_name_list = []
