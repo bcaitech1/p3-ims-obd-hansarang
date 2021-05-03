@@ -13,6 +13,7 @@ from utils import label_accuracy_score, add_hist
 from losses import create_criterion
 from optimizers import create_optimizer
 from schedulers import create_scheduler
+from cutmix import cutmix
 
 
 def seed_everything(seed):
@@ -76,6 +77,7 @@ def train(saved_dir, args, val_every=1):
         data_dir=val_path, mode='val', transform=val_transform)
 
     # DataLoader
+
     train_loader = torch.utils.data.DataLoader(dataset=train_dataset,
                                                batch_size=args.batch_size,
                                                shuffle=True,
@@ -95,17 +97,7 @@ def train(saved_dir, args, val_every=1):
                          3, 4, 23, 3], atrous_rates=[6, 12, 18, 24]).to(device)
     wandb.watch(model)
 
-    # temp = [477401877, 426616, 15223516, 61888326, 4822303, 6110665,
-    #         5230807, 19658353, 10241362, 80795695, 317227, 3651957]
-    # added = sum(temp)
-    # class_weight = torch.tensor([np.log(1/(num/added)) for num in temp]).cuda()
     criterion = create_criterion(args.criterion)
-    # criterion = FocalLoss(gamma=5)
-    # Optimizer 정의
-    # optimizer = torch.optim.Adam(params = model.parameters(), lr = learning_rate, weight_decay=1e-6)
-
-    # optimizer = MADGRAD(params=model.parameters(),
-    #                     lr=args.lr, weight_decay=1e-06)
 
     optimizer = create_optimizer(args.optimizer, params=model.parameters(
     ), lr=args.lr, weight_decay=args.weight_decay)
@@ -125,6 +117,10 @@ def train(saved_dir, args, val_every=1):
             images = torch.stack(images)
             # (batch, channel, height, width)
             masks = torch.stack(masks).long()
+
+            if args.cutmix:
+                images, masks = cutmix(images, masks, 1.0)
+
             # gpu 연산을 위해 device 할당
             images, masks = images.to(device), masks.to(device)
 
@@ -157,7 +153,7 @@ def train(saved_dir, args, val_every=1):
                 # best_loss = avrg_loss
                 best_mIoU = mIoU
                 save_model(
-                    model, saved_dir, f"{args.model}_{epoch+1}epoch_loss_{best_mIoU}_mIoU_{mIoU}.pt")
+                    model, saved_dir, f"{args.run_name}_{epoch+1}epoch_mIoU_{mIoU}.pt")
         scheduler.step()
 
 
@@ -230,7 +226,8 @@ if __name__ == "__main__":
                         help='scheduler type (default: CosineAnnealingLR')
     parser.add_argument('--lr', type=float, default=1e-04,
                         help='learning rate(default: 1e-4)')
-    parser.add_argument('--weight_decay', type=float, default=1e-06)
+    parser.add_argument('--weight_decay', type=float, default=1e-04)
+    parser.add_argument('--cutmix', action='store_true')
     parser.add_argument('--run_name', type=str, required=True)
     args = parser.parse_args()
 
