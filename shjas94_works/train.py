@@ -1,6 +1,7 @@
 import os
 from importlib import import_module
 import random
+from albumentations.augmentations.transforms import CLAHE, CropNonEmptyMaskIfExists, GridDropout, HorizontalFlip, RandomBrightnessContrast, RandomRotate90, Rotate
 import numpy as np
 import pandas as pd
 import torch
@@ -14,6 +15,7 @@ from losses import create_criterion
 from optimizers import create_optimizer
 from schedulers import create_scheduler
 from cutmix import cutmix
+from segmentation_models_pytorch import losses
 
 
 def seed_everything(seed):
@@ -48,8 +50,16 @@ def train(saved_dir, args, val_every=1):
     # collate_fn needs for batch
 
     train_transform = A.Compose([
+                                A.HorizontalFlip(p=0.3),
+                                A.Rotate(p=0.3, limit=45),
                                 ToTensorV2()
                                 ])
+
+    train_color_transform = A.Compose([
+        A.RandomBrightnessContrast(p=0.3)
+        # A.CLAHE(p=0.3),
+        # ToTensorV2()
+    ])
 
     val_transform = A.Compose([
         ToTensorV2()
@@ -70,7 +80,7 @@ def train(saved_dir, args, val_every=1):
     # create own Dataset 2
     # train dataset
     train_dataset = CustomDataLoader(
-        data_dir=train_path, mode='train', transform=train_transform)
+        data_dir=train_path, mode='train', transform=train_transform, color_transform=train_color_transform)
 
     # validation dataset
     val_dataset = CustomDataLoader(
@@ -97,12 +107,14 @@ def train(saved_dir, args, val_every=1):
                          3, 4, 23, 3], atrous_rates=[6, 12, 18, 24]).to(device)
     wandb.watch(model)
 
-    criterion = create_criterion(args.criterion)
+    criterion = create_criterion(args.criterion1)
+    criterion2 = create_criterion(args.criterion2)
 
     optimizer = create_optimizer(args.optimizer, params=model.parameters(
     ), lr=args.lr, weight_decay=args.weight_decay)
+
     scheduler = create_scheduler(
-        args.scheduler, optimizer=optimizer, T_max=10)
+        args.scheduler, optimizer=optimizer, T_max=20)
 
     best_loss = 9999999
     best_mIoU = 0
@@ -117,9 +129,10 @@ def train(saved_dir, args, val_every=1):
             images = torch.stack(images)
             # (batch, channel, height, width)
             masks = torch.stack(masks).long()
-
             if args.cutmix:
-                images, masks = cutmix(images, masks, 1.0)
+                cutmix_prob = np.random.uniform(0., 1.)
+                if cutmix_prob > 0.7:
+                    images, masks = cutmix(images, masks, 1.0)
 
             # gpu 연산을 위해 device 할당
             images, masks = images.to(device), masks.to(device)
@@ -128,7 +141,11 @@ def train(saved_dir, args, val_every=1):
             outputs = model(images)
 
             # loss 계산 (cross entropy loss)
-            loss = criterion(outputs, masks)
+            if args.multi_loss:
+                loss = (0.5*criterion(outputs, masks)) + \
+                    (0.5*criterion2(outputs, masks))
+            else:
+                loss = criterion(outputs, masks)
             optimizer.zero_grad()
             loss.backward()
             optimizer.step()
@@ -218,8 +235,11 @@ if __name__ == "__main__":
                         help='input batch size for validation(default: 8)')
     parser.add_argument('--model', type=str, default='DeepLabV3',
                         help='model type & group name (default: DeepLabV3)')
-    parser.add_argument('--criterion', type=str, default='cross_entropy',
+    parser.add_argument('--criterion1', type=str, default='cross_entropy',
                         help='criterion type (default: cross_entropy)')
+    parser.add_argument('--criterion2', type=str, default='focal',
+                        help='criterion type (default: focal)')
+    parser.add_argument('--multi_loss', action='store_true')
     parser.add_argument('--optimizer', type=str, default='MADGRAD',
                         help='optimizer type (default: MADGRAD)')
     parser.add_argument('--scheduler', type=str, default='CosineAnnealingLR',
