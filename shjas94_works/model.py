@@ -2,19 +2,20 @@ import torch
 import torch.nn as nn
 from torch.nn import functional as F
 from efficientnet_pytorch import EfficientNet
+import timm
 
 
 class EffNet(nn.Module):
     def __init__(self):
         super(EffNet, self).__init__()
-        effnet = EfficientNet.from_pretrained('efficientnet-b7')
-        head = nn.Sequential(effnet._conv_stem, effnet._bn0)
-        blocks = list(effnet._blocks.children())
-        tail = nn.Sequential(effnet._conv_head, effnet._bn1)
+        effnet = timm.create_model('tf_efficientnet_b5_ns', pretrained=True)
+        head = nn.Sequential(effnet.conv_stem, effnet.bn1, effnet.act1)
+        blocks = list(effnet.blocks.children())
+        tail = nn.Sequential(effnet.conv_head, effnet.bn2, effnet.act2)
         blocks.insert(0, head)
-        # blocks.append(nn.Dropout(0.7, inplace=False))
         blocks.append(tail)
-        blocks.append(nn.Conv2d(2560, 512, 1, bias=False))  # projection
+        # blocks.append(nn.Dropout(0.5, inplace=False))
+        blocks.append(nn.Conv2d(2048, 512, 1, bias=False))  # projection
         self.backbone = nn.Sequential(*blocks)
 
     def forward(self, x):
@@ -31,7 +32,7 @@ class EffNet2(nn.Module):
         blocks_tail = list(effnet._blocks.children())[11:]
         tail = nn.Sequential(effnet._conv_head, effnet._bn1)
         blocks_head.insert(0, head)
-        # blocks_tail.append(nn.Dropout(0.7, inplace=False))
+        # blocks_tail.append(nn.Dropout(0.5, inplace=False))
         blocks_tail.append(tail)
         blocks_tail.append(nn.Conv2d(2560, 512, 1, bias=False))  # projection
         self.backbone_head = nn.Sequential(*blocks_head)
@@ -99,10 +100,11 @@ class ASPP(nn.Module):
         x2 = self.aspp2(x)
         x3 = self.aspp3(x)
         x4 = self.aspp4(x)
-        x5 = self.global_avg_pool(x)
-        x5 = F.interpolate(x5, size=x.size()[
+        x6 = self.global_avg_pool(x)
+        x6 = F.interpolate(x6, size=x.size()[
                            2:], mode='bilinear', align_corners=True)
-        x = torch.cat((x1, x2, x3, x4, x5), dim=1)
+
+        x = torch.cat((x1, x2, x3, x4, x6), dim=1)
 
         output = self.project(x)
         return output
