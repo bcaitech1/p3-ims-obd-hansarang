@@ -1,7 +1,7 @@
 import os
 from importlib import import_module
 import random
-from albumentations.augmentations.transforms import CLAHE, CropNonEmptyMaskIfExists, GridDropout, HorizontalFlip, RandomBrightnessContrast, RandomRotate90, Rotate
+from albumentations.augmentations.transforms import CLAHE, CropNonEmptyMaskIfExists, GridDropout, HorizontalFlip, Normalize, RandomBrightnessContrast, RandomRotate90, Rotate
 import numpy as np
 import pandas as pd
 import torch
@@ -28,6 +28,11 @@ def seed_everything(seed):
     random.seed(seed)
 
 
+def get_lr(optimizer):
+    for param_group in optimizer.param_groups:
+        return param_group['lr']
+
+
 def collate_fn(batch):
     return tuple(zip(*batch))
 
@@ -50,22 +55,26 @@ def train(saved_dir, args, val_every=1):
     # collate_fn needs for batch
 
     train_transform = A.Compose([
-                                A.HorizontalFlip(p=0.3),
-                                A.Rotate(p=0.3, limit=45),
+                                A.HorizontalFlip(p=0.5),
+                                A.Rotate(p=0.5, limit=45),
+                                A.RandomBrightnessContrast(p=0.5),
+                                A.Cutout(num_holes=4, max_h_size=20,
+                                         max_w_size=20, p=0.5),
+                                A.CLAHE(p=0.5),
+                                A.Normalize(mean=(0.5, 0.5, 0.5), std=(
+                                    0.25, 0.25, 0.25), max_pixel_value=255.0, p=1.0),
                                 ToTensorV2()
                                 ])
 
-    train_color_transform = A.Compose([
-        A.RandomBrightnessContrast(p=0.3)
-        # A.CLAHE(p=0.3),
-        # ToTensorV2()
-    ])
+    # train_color_transform = A.Compose([
+    #     A.RandomBrightnessContrast(p=0.3)
+    #     # A.CLAHE(p=0.3),
+    #     # ToTensorV2()
+    # ])
 
     val_transform = A.Compose([
-        ToTensorV2()
-    ])
-
-    test_transform = A.Compose([
+        A.Normalize(mean=(0.5, 0.5, 0.5), std=(
+            0.25, 0.25, 0.25), max_pixel_value=255.0, p=1.0),
         ToTensorV2()
     ])
 
@@ -80,7 +89,7 @@ def train(saved_dir, args, val_every=1):
     # create own Dataset 2
     # train dataset
     train_dataset = CustomDataLoader(
-        data_dir=train_path, mode='train', transform=train_transform, color_transform=train_color_transform)
+        data_dir=train_path, mode='train', transform=train_transform)
 
     # validation dataset
     val_dataset = CustomDataLoader(
@@ -107,11 +116,15 @@ def train(saved_dir, args, val_every=1):
                          3, 4, 23, 3], atrous_rates=[6, 12, 18, 24]).to(device)
     wandb.watch(model)
 
-    criterion = create_criterion(args.criterion1)
+    # criterion = create_criterion(args.criterion1)
+    criterion = create_criterion(args.criterion1, smooth_factor=0.05)
     criterion2 = create_criterion(args.criterion2)
 
     optimizer = create_optimizer(args.optimizer, params=model.parameters(
     ), lr=args.lr, weight_decay=args.weight_decay)
+
+    # scheduler = create_scheduler(
+    #     args.scheduler, optimizer=optimizer, T_0=4, T_mult=1, eta_max=2e-4,  T_up=1, gamma=0.75)
 
     scheduler = create_scheduler(
         args.scheduler, optimizer=optimizer, T_max=20)
@@ -156,8 +169,10 @@ def train(saved_dir, args, val_every=1):
             if (step + 1) % 25 == 0:
                 print('Epoch [{}/{}], Step [{}/{}], Loss: {:.4f}'.format(
                     epoch+1, args.num_epochs, step+1, len(train_loader), train_loss))
+            learning_rate = get_lr(optimizer)
             wandb.log({
-                "Train Loss": train_loss
+                "Train Loss": train_loss,
+                "Learning Rate": learning_rate
             })
         # validation 주기에 따른 loss 출력 및 best model 저장
         if (epoch + 1) % val_every == 0:
@@ -235,8 +250,8 @@ if __name__ == "__main__":
                         help='input batch size for validation(default: 8)')
     parser.add_argument('--model', type=str, default='DeepLabV3',
                         help='model type & group name (default: DeepLabV3)')
-    parser.add_argument('--criterion1', type=str, default='cross_entropy',
-                        help='criterion type (default: cross_entropy)')
+    parser.add_argument('--criterion1', type=str, default='label_smoothing',
+                        help='criterion type (default: label_smoothong')
     parser.add_argument('--criterion2', type=str, default='focal',
                         help='criterion type (default: focal)')
     parser.add_argument('--multi_loss', action='store_true')
