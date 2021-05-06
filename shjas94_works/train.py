@@ -37,19 +37,19 @@ def collate_fn(batch):
     return tuple(zip(*batch))
 
 
-def train(saved_dir, args, val_every=1):
+def train(saved_dir, args, train_path, val_path, fold_num, val_every=1):
 
     wandb.init(project='jaesub', entity='pstage12',
-               group=args.model, name=args.run_name)
+               group=args.model, name=args.run_name+str(fold_num))
 
     wandb.config.update(args)
     print(args)
     device = "cuda" if torch.cuda.is_available() else "cpu"
-    dataset_path = '../input/data'
+    # dataset_path = '../input/data'
     # anns_file_path = dataset_path + '/' + 'train.json'
-    train_path = dataset_path + '/train.json'
-    val_path = dataset_path + '/val.json'
-    test_path = dataset_path + '/test.json'
+    # train_path = dataset_path + '/train.json'
+    # val_path = dataset_path + '/val.json'
+
     seed_everything(args.seed)
 
     # collate_fn needs for batch
@@ -65,12 +65,6 @@ def train(saved_dir, args, val_every=1):
                                     0.25, 0.25, 0.25), max_pixel_value=255.0, p=1.0),
                                 ToTensorV2()
                                 ])
-
-    # train_color_transform = A.Compose([
-    #     A.RandomBrightnessContrast(p=0.3)
-    #     # A.CLAHE(p=0.3),
-    #     # ToTensorV2()
-    # ])
 
     val_transform = A.Compose([
         A.Normalize(mean=(0.5, 0.5, 0.5), std=(
@@ -88,6 +82,7 @@ def train(saved_dir, args, val_every=1):
 
     # create own Dataset 2
     # train dataset
+
     train_dataset = CustomDataLoader(
         data_dir=train_path, mode='train', transform=train_transform)
 
@@ -185,8 +180,9 @@ def train(saved_dir, args, val_every=1):
                 # best_loss = avrg_loss
                 best_mIoU = mIoU
                 save_model(
-                    model, saved_dir, f"{args.run_name}_{epoch+1}epoch_mIoU_{mIoU}.pt")
+                    model, saved_dir, f"{args.run_name+str(fold_num)}_{epoch+1}epoch_mIoU_{mIoU}.pt")
         scheduler.step()
+    wandb.join()
 
 
 def validation(epoch, model, data_loader, criterion, device):
@@ -272,4 +268,14 @@ if __name__ == "__main__":
     if not os.path.isdir(saved_dir):
         os.mkdir(saved_dir)
 
-    train(saved_dir, args, val_every)
+    fold_root = './kfold'
+    fold_train_paths = [fold_root+'/train_data0.json', fold_root+'/train_data1.json',
+                        fold_root+'/train_data2.json', fold_root+'/train_data3.json', fold_root+'/train_data4.json']
+
+    fold_valid_paths = [fold_root+'/valid_data0.json', fold_root+'/valid_data1.json',
+                        fold_root+'/valid_data2.json', fold_root+'/valid_data3.json', fold_root+'/valid_data4.json']
+    for i in range(5):
+        if i == 0:
+            continue
+        train(saved_dir, args,
+              fold_train_paths[i], fold_valid_paths[i], fold_num=i, val_every=val_every)
