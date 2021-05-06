@@ -46,7 +46,7 @@ class FocalLoss(nn.Module):
 _criterion_entrypoints = {
     'cross_entropy': nn.CrossEntropyLoss,
     'focal': FocalLoss,
-    'dice': losses.DiceLoss,
+    'dice' : losses.DiceLoss,
     'label_smoothing': losses.SoftCrossEntropyLoss
 }
 

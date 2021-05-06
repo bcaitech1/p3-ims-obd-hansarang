@@ -78,6 +78,7 @@ class CustomDataLoader(Dataset):
         self.transform = transform
         self.coco = COCO(data_dir)
         self.category_names = get_category_names()
+        # self.color_transform = color_transform
 
     def __getitem__(self, index: int):
         # dataset이 index되어 list처럼 동작
@@ -87,8 +88,15 @@ class CustomDataLoader(Dataset):
         # cv2 를 활용하여 image 불러오기
         images = cv2.imread(os.path.join(
             dataset_path, image_infos['file_name']))
-        images = cv2.cvtColor(images, cv2.COLOR_BGR2RGB).astype(np.float32)
-        images /= 255.0
+        # img_ycrcb = cv2.cvtColor(images, cv2.COLOR_BGR2YCrCb)
+        # ycrcb_planes = cv2.split(img_ycrcb)
+
+        # # histogram equalization
+        # ycrcb_planes[0] = cv2.equalizeHist(ycrcb_planes[0])
+        # dst_ycrcb = cv2.merge(ycrcb_planes)
+        images = cv2.cvtColor(
+            images, cv2.COLOR_BGR2RGB)
+        # images /= 255.0
 
         if (self.mode in ('train', 'val')):
             ann_ids = self.coco.getAnnIds(imgIds=image_infos['id'])
@@ -111,6 +119,10 @@ class CustomDataLoader(Dataset):
             masks = masks.astype(np.float32)
 
             # transform -> albumentations 라이브러리 활용
+            # if self.color_transform is not None:
+            #     color_transformed = self.color_transform(image=images)
+            #     images = color_transformed["image"]
+
             if self.transform is not None:
                 transformed = self.transform(image=images, mask=masks)
                 images = transformed["image"]
