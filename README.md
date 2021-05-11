@@ -11,8 +11,8 @@
 <details>
   <summary>code library github</summary>
   - mmcv : https://github.com/open-mmlab/mmcv
-</details>
-<br>
+</details><br>
+
 ### Model 관련 논문
 <details>
   <summary>two stage</summary>
