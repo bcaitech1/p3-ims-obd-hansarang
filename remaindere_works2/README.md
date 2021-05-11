@@ -22,6 +22,6 @@ DeiT : https://arxiv.org/pdf/2012.12877.pdf
 Swin Transformer : https://arxiv.org/pdf/2103.14030.pdf     
   
 Github  
-https://github.com/microsoft/Swin-Transformer Swin-Transformer official github  
-https://github.com/SwinTransformer/Swin-Transformer-Object-Detection Swin-Transformer on mmdetection implements  
+Swin-Transformer official : github https://github.com/microsoft/Swin-Transformer      
+Swin-Transformer on mmdetection implements : https://github.com/SwinTransformer/Swin-Transformer-Object-Detection     
   
