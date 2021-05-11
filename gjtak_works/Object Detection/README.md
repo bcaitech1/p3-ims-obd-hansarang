@@ -3,9 +3,9 @@
 <details>
     <summary>2021-05 3주차(Object Detection 1주차)</summary>
         - 05-10-Mon<br>
-        <p>&ensp - mmdetection 기본 baseline code 실행(faster rcnn-resnet50)</p>
+        <p>  - mmdetection 기본 baseline code 실행(faster rcnn-resnet50)</p>
         - 05-11-Tue<br>
-        <p>&ensp - git branch 생성(gjtak_branch)</p>
+        <p>  - git branch 생성(gjtak_branch)</p>
 </details>
 <details>
     <summary>2021-05 4주차(Object Detection 2주차)</summary>
