@@ -5,7 +5,9 @@
         - 05-10-Mon<br>
         <p>  - mmdetection 기본 baseline code 실행(faster rcnn-resnet50)</p>
         - 05-11-Tue<br>
-        <p>  - git branch 생성(gjtak_branch)</p>
+        <p>  - git branch 생성(gjtak_branch) & code directory 포함시킴</p>
+        - 05-12-Wed<br>
+        <p>  - jupyter notebook 수정(wandb 추가)</p>
 </details>
 <details>
     <summary>2021-05 4주차(Object Detection 2주차)</summary>

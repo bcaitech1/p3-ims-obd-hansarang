@@ -5,11 +5,14 @@
 
 ## Object Detection
 ### mmdetection관련 자료
-
 - mmdetection 자료 : [https://github.com/open-mmlab/mmdetection](https://github.com/open-mmlab/mmdetection)
 - mmdetection documentation : [https://mmdetection.readthedocs.io/en/latest/](https://mmdetection.readthedocs.io/en/latest/)
 - efficientnet & mmdetection : [https://github.com/HardLaugh/EfficientDet-bifpn](https://github.com/HardLaugh/EfficientDet-bifpn)
--
+<details>
+  <summary>code library github</summary>
+  - mmcv : https://github.com/open-mmlab/mmcv
+</details><br>
+
 ### Model 관련 논문
 <details>
   <summary>two stage</summary>

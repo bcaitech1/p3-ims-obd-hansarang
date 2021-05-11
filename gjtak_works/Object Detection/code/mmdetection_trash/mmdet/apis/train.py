@@ -12,7 +12,7 @@ from mmcv.utils import build_from_cfg
 from mmdet.core import DistEvalHook, EvalHook
 from mmdet.datasets import (build_dataloader, build_dataset,
                             replace_ImageToTensor)
-from mmdet.utils import get_root_logger
+from mmdet.utils import get_root_logger # mmdet/utils/logger.py 에 존재
 
 
 def set_random_seed(seed, deterministic=False):
