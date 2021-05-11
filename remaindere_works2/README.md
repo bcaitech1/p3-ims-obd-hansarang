@@ -17,9 +17,9 @@ cascade mask rcnn : https://arxiv.org/pdf/1712.00726v1.pdf
 hybrid task cascade : https://arxiv.org/pdf/1901.07518v2.pdf  
   
 Backbone  
-AN IMAGE IS WORTH 16X16 WORDS: https://arxiv.org/pdf/2010.11929.pdf 
-DeiT : https://arxiv.org/pdf/2012.12877.pdf 
-Swin Transformer : https://arxiv.org/pdf/2103.14030.pdf 
+AN IMAGE IS WORTH 16X16 WORDS: https://arxiv.org/pdf/2010.11929.pdf    
+DeiT : https://arxiv.org/pdf/2012.12877.pdf     
+Swin Transformer : https://arxiv.org/pdf/2103.14030.pdf     
   
 Github  
 https://github.com/microsoft/Swin-Transformer Swin-Transformer official github  
