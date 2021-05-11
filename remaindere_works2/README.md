@@ -1,7 +1,6 @@
 P3 stage  
 Image Detection  
 1일차 : Baseline 코드 및 Swin-Transformer / ViT 논문 연구  
-
 2일차 : Baseline 코드와 Swin-Transformer 코드 참고하여 현재 task에서 사용할 수 있도록 수정중 + 모델과 백본에 대한 이해가 필요하여 공부중  
   
   
