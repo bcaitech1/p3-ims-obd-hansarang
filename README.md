@@ -22,7 +22,7 @@
   <summary>multi stage</summary>
   - cascade mask rcnn : https://arxiv.org/pdf/1712.00726v1.pdf<br>
   - hybrid task cascade : https://arxiv.org/pdf/1901.07518v2.pdf<br>
-  - Backbone
+  - Backbone<br>
     - AN IMAGE IS WORTH 16X16 WORDS: https://arxiv.org/pdf/2010.11929.pdf<br>
     - DeiT : https://arxiv.org/pdf/2012.12877.pdf<br>
     - Swin Transformer : https://arxiv.org/pdf/2103.14030.pdf<br>
