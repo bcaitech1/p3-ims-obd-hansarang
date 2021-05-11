@@ -5,3 +5,5 @@ https://arxiv.org/pdf/2103.14030.pdf Swin-Transformer
 https://arxiv.org/pdf/2010.11929.pdf ViT  
 https://github.com/microsoft/Swin-Transformer Swin-Transformer official github  
 https://github.com/SwinTransformer/Swin-Transformer-Object-Detection Swin-Transformer on mmdetection implements  
+2일차 : Baseline 코드와 Swin-Transformer 코드 참고하여 현재 task의 dataset을 이용하여 train 하도록 수정  
+  
