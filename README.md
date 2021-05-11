@@ -17,6 +17,8 @@
   - fast rcnn : https://arxiv.org/pdf/1504.08083.pdf
   - faster rcnn : https://arxiv.org/pdf/1506.01497.pdf
   - mask rcnn : https://arxiv.org/pdf/1703.06870.pdf
+</details>
+<details>
   <summary>multi stage</summary>
   - cascade mask rcnn : https://arxiv.org/pdf/1712.00726v1.pdf
   - hybrid task cascade : https://arxiv.org/pdf/1901.07518v2.pdf
@@ -24,8 +26,9 @@
     - AN IMAGE IS WORTH 16X16 WORDS: https://arxiv.org/pdf/2010.11929.pdf
     - DeiT : https://arxiv.org/pdf/2012.12877.pdf
     - Swin Transformer : https://arxiv.org/pdf/2103.14030.pdf
+</details>
+<details>
   <summary>Sidedish</summary>
   - FPN : https://arxiv.org/pdf/1612.03144.pdf
   - PAN : https://arxiv.org/pdf/1803.01534.pdf 
 </details>
-
