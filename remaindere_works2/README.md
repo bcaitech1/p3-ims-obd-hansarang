@@ -12,7 +12,7 @@ rcnn : https://arxiv.org/pdf/1311.2524.pdf
 fast rcnn : https://arxiv.org/pdf/1504.08083.pdf  
 faster rcnn : https://arxiv.org/pdf/1506.01497.pdf  
 mask rcnn : https://arxiv.org/pdf/1703.06870.pdf  
-----multi stage---- 
+----multi stage----   
 cascade mask rcnn : https://arxiv.org/pdf/1712.00726v1.pdf  
 hybrid task cascade : https://arxiv.org/pdf/1901.07518v2.pdf  
   
