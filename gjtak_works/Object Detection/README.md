@@ -34,4 +34,4 @@
 |Date|Model Name|Backbone|Config file link|WanDB Link|Last bbox mAP50(val)|LB score(mAP50)|ETC|
 |----|----------|--------|----------------|----------|--------------------|---------------|---|
 |2021-05-12|Faster RCNN|resnet50|[faster_rcnn_r50_fpn_1x_coco config](https://github.com/bcaitech1/p3-ims-obd-hansarang/blob/main/gjtak_works/Object%20Detection/code/mmdetection_trash/work_dirs/faster_rcnn_r50_fpn_1x_coco/config.json)|[faster_rcnn_r50_fpn_1x_coco](https://wandb.ai/pstage3_det/gjtak/runs/11ckhm1c?workspace=user-atica)|0.313|no submmision|basic tutorial code|
-|2021-05-12|Faster RCNN|hrnet|[not yet config]()|[faster_rcnn_hrnetv2p_w40_2x_coco](https://wandb.ai/pstage3_det/gjtak/runs/2gm7klxk?workspace=user-atica)|0.XXX|no submmision|basic tutorial code|
+|2021-05-12|Faster RCNN|hrnet|not yet config|[faster_rcnn_hrnetv2p_w40_2x_coco](https://wandb.ai/pstage3_det/gjtak/runs/2gm7klxk?workspace=user-atica)|0.XXX|no submmision|basic tutorial code|
