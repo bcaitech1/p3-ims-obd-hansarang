@@ -1,0 +1,627 @@
+{
+	"model": {
+		"type": "FasterRCNN",
+		"pretrained": "torchvision://resnet50",
+		"backbone": {
+			"type": "ResNet",
+			"depth": 50,
+			"num_stages": 4,
+			"out_indices": [
+				0,
+				1,
+				2,
+				3
+			],
+			"frozen_stages": 1,
+			"norm_cfg": {
+				"type": "BN",
+				"requires_grad": true
+			},
+			"norm_eval": true,
+			"style": "pytorch"
+		},
+		"neck": {
+			"type": "FPN",
+			"in_channels": [
+				256,
+				512,
+				1024,
+				2048
+			],
+			"out_channels": 256,
+			"num_outs": 5
+		},
+		"rpn_head": {
+			"type": "RPNHead",
+			"in_channels": 256,
+			"feat_channels": 256,
+			"anchor_generator": {
+				"type": "AnchorGenerator",
+				"scales": [
+					8
+				],
+				"ratios": [
+					0.5,
+					1.0,
+					2.0
+				],
+				"strides": [
+					4,
+					8,
+					16,
+					32,
+					64
+				]
+			},
+			"bbox_coder": {
+				"type": "DeltaXYWHBBoxCoder",
+				"target_means": [
+					0.0,
+					0.0,
+					0.0,
+					0.0
+				],
+				"target_stds": [
+					1.0,
+					1.0,
+					1.0,
+					1.0
+				]
+			},
+			"loss_cls": {
+				"type": "CrossEntropyLoss",
+				"use_sigmoid": true,
+				"loss_weight": 1.0
+			},
+			"loss_bbox": {
+				"type": "L1Loss",
+				"loss_weight": 1.0
+			}
+		},
+		"roi_head": {
+			"type": "StandardRoIHead",
+			"bbox_roi_extractor": {
+				"type": "SingleRoIExtractor",
+				"roi_layer": {
+					"type": "RoIAlign",
+					"output_size": 7,
+					"sampling_ratio": 0
+				},
+				"out_channels": 256,
+				"featmap_strides": [
+					4,
+					8,
+					16,
+					32
+				]
+			},
+			"bbox_head": {
+				"type": "Shared2FCBBoxHead",
+				"in_channels": 256,
+				"fc_out_channels": 1024,
+				"roi_feat_size": 7,
+				"num_classes": 11,
+				"bbox_coder": {
+					"type": "DeltaXYWHBBoxCoder",
+					"target_means": [
+						0.0,
+						0.0,
+						0.0,
+						0.0
+					],
+					"target_stds": [
+						0.1,
+						0.1,
+						0.2,
+						0.2
+					]
+				},
+				"reg_class_agnostic": false,
+				"loss_cls": {
+					"type": "CrossEntropyLoss",
+					"use_sigmoid": false,
+					"loss_weight": 1.0
+				},
+				"loss_bbox": {
+					"type": "L1Loss",
+					"loss_weight": 1.0
+				}
+			}
+		},
+		"train_cfg": {
+			"rpn": {
+				"assigner": {
+					"type": "MaxIoUAssigner",
+					"pos_iou_thr": 0.7,
+					"neg_iou_thr": 0.3,
+					"min_pos_iou": 0.3,
+					"match_low_quality": true,
+					"ignore_iof_thr": -1
+				},
+				"sampler": {
+					"type": "RandomSampler",
+					"num": 256,
+					"pos_fraction": 0.5,
+					"neg_pos_ub": -1,
+					"add_gt_as_proposals": false
+				},
+				"allowed_border": -1,
+				"pos_weight": -1,
+				"debug": false
+			},
+			"rpn_proposal": {
+				"nms_pre": 2000,
+				"max_per_img": 1000,
+				"nms": {
+					"type": "nms",
+					"iou_threshold": 0.7
+				},
+				"min_bbox_size": 0
+			},
+			"rcnn": {
+				"assigner": {
+					"type": "MaxIoUAssigner",
+					"pos_iou_thr": 0.5,
+					"neg_iou_thr": 0.5,
+					"min_pos_iou": 0.5,
+					"match_low_quality": false,
+					"ignore_iof_thr": -1
+				},
+				"sampler": {
+					"type": "RandomSampler",
+					"num": 512,
+					"pos_fraction": 0.25,
+					"neg_pos_ub": -1,
+					"add_gt_as_proposals": true
+				},
+				"pos_weight": -1,
+				"debug": false
+			}
+		},
+		"test_cfg": {
+			"rpn": {
+				"nms_pre": 1000,
+				"max_per_img": 1000,
+				"nms": {
+					"type": "nms",
+					"iou_threshold": 0.7
+				},
+				"min_bbox_size": 0
+			},
+			"rcnn": {
+				"score_thr": 0.05,
+				"nms": {
+					"type": "nms",
+					"iou_threshold": 0.5
+				},
+				"max_per_img": 100
+			}
+		}
+	},
+	"dataset_type": "CocoDataset",
+	"data_root": "data/coco/",
+	"img_norm_cfg": {
+		"mean": [
+			123.675,
+			116.28,
+			103.53
+		],
+		"std": [
+			58.395,
+			57.12,
+			57.375
+		],
+		"to_rgb": true
+	},
+	"train_pipeline": [
+		{
+			"type": "LoadImageFromFile"
+		},
+		{
+			"type": "LoadAnnotations",
+			"with_bbox": true
+		},
+		{
+			"type": "Resize",
+			"img_scale": [
+				1333,
+				800
+			],
+			"keep_ratio": true
+		},
+		{
+			"type": "RandomFlip",
+			"flip_ratio": 0.5
+		},
+		{
+			"type": "Normalize",
+			"mean": [
+				123.675,
+				116.28,
+				103.53
+			],
+			"std": [
+				58.395,
+				57.12,
+				57.375
+			],
+			"to_rgb": true
+		},
+		{
+			"type": "Pad",
+			"size_divisor": 32
+		},
+		{
+			"type": "DefaultFormatBundle"
+		},
+		{
+			"type": "Collect",
+			"keys": [
+				"img",
+				"gt_bboxes",
+				"gt_labels"
+			]
+		}
+	],
+	"test_pipeline": [
+		{
+			"type": "LoadImageFromFile"
+		},
+		{
+			"type": "MultiScaleFlipAug",
+			"img_scale": [
+				1333,
+				800
+			],
+			"flip": false,
+			"transforms": [
+				{
+					"type": "Resize",
+					"keep_ratio": true
+				},
+				{
+					"type": "RandomFlip"
+				},
+				{
+					"type": "Normalize",
+					"mean": [
+						123.675,
+						116.28,
+						103.53
+					],
+					"std": [
+						58.395,
+						57.12,
+						57.375
+					],
+					"to_rgb": true
+				},
+				{
+					"type": "Pad",
+					"size_divisor": 32
+				},
+				{
+					"type": "ImageToTensor",
+					"keys": [
+						"img"
+					]
+				},
+				{
+					"type": "Collect",
+					"keys": [
+						"img"
+					]
+				}
+			]
+		}
+	],
+	"data": {
+		"samples_per_gpu": 16,
+		"workers_per_gpu": 2,
+		"train": {
+			"type": "CocoDataset",
+			"ann_file": "/opt/ml/input/data/train.json",
+			"img_prefix": "/opt/ml/input/data/",
+			"pipeline": [
+				{
+					"type": "LoadImageFromFile"
+				},
+				{
+					"type": "LoadAnnotations",
+					"with_bbox": true
+				},
+				{
+					"type": "Resize",
+					"img_scale": [
+						512,
+						512
+					],
+					"keep_ratio": true
+				},
+				{
+					"type": "RandomFlip",
+					"flip_ratio": 0.5
+				},
+				{
+					"type": "Normalize",
+					"mean": [
+						123.675,
+						116.28,
+						103.53
+					],
+					"std": [
+						58.395,
+						57.12,
+						57.375
+					],
+					"to_rgb": true
+				},
+				{
+					"type": "Pad",
+					"size_divisor": 32
+				},
+				{
+					"type": "DefaultFormatBundle"
+				},
+				{
+					"type": "Collect",
+					"keys": [
+						"img",
+						"gt_bboxes",
+						"gt_labels"
+					]
+				}
+			],
+			"classes": [
+				"UNKNOWN",
+				"General trash",
+				"Paper",
+				"Paper pack",
+				"Metal",
+				"Glass",
+				"Plastic",
+				"Styrofoam",
+				"Plastic bag",
+				"Battery",
+				"Clothing"
+			]
+		},
+		"val": {
+			"type": "CocoDataset",
+			"ann_file": "/opt/ml/input/data/val.json",
+			"img_prefix": "/opt/ml/input/data/",
+			"pipeline": [
+				{
+					"type": "LoadImageFromFile"
+				},
+				{
+					"type": "MultiScaleFlipAug",
+					"img_scale": [
+						512,
+						512
+					],
+					"flip": false,
+					"transforms": [
+						{
+							"type": "Resize",
+							"keep_ratio": true
+						},
+						{
+							"type": "RandomFlip"
+						},
+						{
+							"type": "Normalize",
+							"mean": [
+								123.675,
+								116.28,
+								103.53
+							],
+							"std": [
+								58.395,
+								57.12,
+								57.375
+							],
+							"to_rgb": true
+						},
+						{
+							"type": "Pad",
+							"size_divisor": 32
+						},
+						{
+							"type": "ImageToTensor",
+							"keys": [
+								"img"
+							]
+						},
+						{
+							"type": "Collect",
+							"keys": [
+								"img"
+							]
+						}
+					]
+				}
+			],
+			"classes": [
+				"UNKNOWN",
+				"General trash",
+				"Paper",
+				"Paper pack",
+				"Metal",
+				"Glass",
+				"Plastic",
+				"Styrofoam",
+				"Plastic bag",
+				"Battery",
+				"Clothing"
+			]
+		},
+		"test": {
+			"type": "CocoDataset",
+			"ann_file": "/opt/ml/input/data/test.json",
+			"img_prefix": "/opt/ml/input/data/",
+			"pipeline": [
+				{
+					"type": "LoadImageFromFile"
+				},
+				{
+					"type": "MultiScaleFlipAug",
+					"img_scale": [
+						512,
+						512
+					],
+					"flip": false,
+					"transforms": [
+						{
+							"type": "Resize",
+							"keep_ratio": true
+						},
+						{
+							"type": "RandomFlip"
+						},
+						{
+							"type": "Normalize",
+							"mean": [
+								123.675,
+								116.28,
+								103.53
+							],
+							"std": [
+								58.395,
+								57.12,
+								57.375
+							],
+							"to_rgb": true
+						},
+						{
+							"type": "Pad",
+							"size_divisor": 32
+						},
+						{
+							"type": "ImageToTensor",
+							"keys": [
+								"img"
+							]
+						},
+						{
+							"type": "Collect",
+							"keys": [
+								"img"
+							]
+						}
+					]
+				}
+			],
+			"classes": [
+				"UNKNOWN",
+				"General trash",
+				"Paper",
+				"Paper pack",
+				"Metal",
+				"Glass",
+				"Plastic",
+				"Styrofoam",
+				"Plastic bag",
+				"Battery",
+				"Clothing"
+			]
+		}
+	},
+	"evaluation": {
+		"interval": 1,
+		"metric": "bbox"
+	},
+	"optimizer": {
+		"type": "SGD",
+		"lr": 0.02,
+		"momentum": 0.9,
+		"weight_decay": 0.0001
+	},
+	"optimizer_config": {
+		"grad_clip": {
+			"max_norm": 35,
+			"norm_type": 2
+		}
+	},
+	"lr_config": {
+		"policy": "step",
+		"warmup": "linear",
+		"warmup_iters": 500,
+		"warmup_ratio": 0.001,
+		"step": [
+			8,
+			11
+		]
+	},
+	"runner": {
+		"type": "EpochBasedRunner",
+		"max_epochs": 12
+	},
+	"checkpoint_config": {
+		"interval": 1
+	},
+	"log_config": {
+		"interval": 10,
+		"hooks": [
+			{
+				"type": "TextLoggerHook"
+			},
+			{
+				"type": "WandbLoggerHook",
+				"init_kwargs": {
+					"project": "gjtak",
+					"group": "hrnet",
+					"name": "faster_rcnn_r50_fpn_1x_coco",
+					"config": {
+						"epoch": 12,
+						"batch_size": 16,
+						"optimizer": {
+							"type": "SGD",
+							"lr": 0.02,
+							"momentum": 0.9,
+							"weight_decay": 0.0001
+						},
+						"optimizer_config": {
+							"grad_clip": {
+								"max_norm": 35,
+								"norm_type": 2
+							}
+						},
+						"lr_config": {
+							"policy": "step",
+							"warmup": "linear",
+							"warmup_iters": 500,
+							"warmup_ratio": 0.001,
+							"step": [
+								8,
+								11
+							]
+						}
+					}
+				}
+			}
+		]
+	},
+	"custom_hooks": [
+		{
+			"type": "NumClassCheckHook"
+		}
+	],
+	"dist_params": {
+		"backend": "nccl"
+	},
+	"log_level": "INFO",
+	"load_from": null,
+	"resume_from": null,
+	"workflow": [
+		[
+			"train",
+			1
+		]
+	],
+	"seed": 42,
+	"gpu_ids": [
+		0
+	],
+	"work_dir": "../work_dirs/faster_rcnn_r50_fpn_1x_coco"
+}
