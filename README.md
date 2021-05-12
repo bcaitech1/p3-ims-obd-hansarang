@@ -8,6 +8,7 @@
 - mmdetection 자료 : [https://github.com/open-mmlab/mmdetection](https://github.com/open-mmlab/mmdetection)
 - mmdetection documentation : [https://mmdetection.readthedocs.io/en/latest/](https://mmdetection.readthedocs.io/en/latest/)
 - efficientnet & mmdetection : [https://github.com/HardLaugh/EfficientDet-bifpn](https://github.com/HardLaugh/EfficientDet-bifpn)
+- swin Transform & mmdetection : https://github.com/SwinTransformer/Swin-Transformer-Object-Detection
 <details>
   <summary>code library github</summary>
   - mmcv : https://github.com/open-mmlab/mmcv
