@@ -28,8 +28,8 @@
 
     <summary>2021-05 4주차(Object Detection 2주차)</summary>
 
-
 </details>
+
 ## 실험 결과 정리
 |Date|Model Name|Backbone|Config file link|WanDB Link|Last bbox mAP50(val)|LB score(mAP50)|ETC|
 |----|----------|--------|----------------|----------|--------------------|---------------|---|
