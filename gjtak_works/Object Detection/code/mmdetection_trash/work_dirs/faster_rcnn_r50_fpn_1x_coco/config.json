@@ -569,7 +569,7 @@
 			{
 				"type": "WandbLoggerHook",
 				"init_kwargs": {
-					"project": "gjtak_od",
+					"project": "gjtak",
 					"group": "hrnet",
 					"name": "faster_rcnn_r50_fpn_1x_coco",
 					"config": {
