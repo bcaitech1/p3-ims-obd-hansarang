@@ -1,10 +1,17 @@
 checkpoint_config = dict(interval=1)
 # yapf:disable
 log_config = dict(
-    interval=50,
+    interval=10,
     hooks=[
         dict(type='TextLoggerHook'),
         # dict(type='TensorboardLoggerHook')
+        dict(
+            type='WandbLoggerHook',
+            init_kwargs=dict(
+                project='gjtak_od',
+                #name = 'Your EXP' 
+                )
+        ),
     ])
 # yapf:enable
 custom_hooks = [dict(type='NumClassCheckHook')]
