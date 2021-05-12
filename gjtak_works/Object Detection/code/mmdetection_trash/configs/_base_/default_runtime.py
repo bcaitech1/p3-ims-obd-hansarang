@@ -8,7 +8,7 @@ log_config = dict(
         dict(
             type='WandbLoggerHook',
             init_kwargs=dict(
-                project='gjtak_od',
+                project='gjtak',
                 #name = 'Your EXP' 
                 )
         ),
