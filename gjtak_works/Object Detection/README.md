@@ -3,35 +3,27 @@
 ## 실험 일지
 
 <details>
-
     <summary>2021-05 3주차(Object Detection 1주차)</summary>
-
-        #### 05-10-Mon
-
-        <p> - mmdetection 기본 baseline code 실행(faster rcnn-resnet50)</p>
-
-        #### 05-11-Tue
-
-        <p> - git branch 생성(gjtak_branch) & code directory 포함시킴</p>
-
-        #### 05-12-Wed
-
-        <p> - jupyter notebook 수정(wandb 추가)</p>
-
-        <p> - wandb(pstage3_det) 작동 test - faster_rcnn_r50_fpn_1x_coco.py 이용</p>
-
-        <p> - faster_rcnn_hrnetv2p_w40_2x_coco.py basic code 실행</p>
-
+        <h4>05-10-Mon</h4>
+        <p> &ensp- mmdetection 기본 baseline code 실행(faster rcnn-resnet50)</p>
+        <h4>05-11-Tue</h4>
+        <p> &ensp- git branch 생성(gjtak_branch) & code directory 포함시킴</p>
+        <h4>05-12-Wed</h4>
+        <p> &ensp- jupyter notebook 수정(wandb 추가)</p>
+        <p> &ensp- wandb(pstage3_det) 작동 test - faster_rcnn_r50_fpn_1x_coco.py 이용</p>
+        <p> &ensp- faster_rcnn_hrnetv2p_w40_2x_coco.py basic code 실행</p>
+        <h4>05-13-Thur</h4>
+        <p> &ensp- fcos_hrnetv2p_w40_gn-head_mstrain_640-800_4x4_2x_coco.py 실행. 결과가 이전보다 좋지 않음. hyper parameter 조정이 필요해보임</p>
+        <p> Cumstomized coding 계획 수립(Dataset ~ Train ~ Test 까지)</p>
 </details>
 
 <details>
-
     <summary>2021-05 4주차(Object Detection 2주차)</summary>
-
 </details>
 
 ## 실험 결과 정리
 |Date|Model Name|Backbone|Config file link|WanDB Link|Last bbox mAP50(val)|LB score(mAP50)|ETC|
 |----|----------|--------|----------------|----------|--------------------|---------------|---|
-|2021-05-12|Faster RCNN|resnet50|[faster_rcnn_r50_fpn_1x_coco config](https://github.com/bcaitech1/p3-ims-obd-hansarang/blob/main/gjtak_works/Object%20Detection/code/mmdetection_trash/work_dirs/faster_rcnn_r50_fpn_1x_coco/config.json)|[faster_rcnn_r50_fpn_1x_coco](https://wandb.ai/pstage3_det/gjtak/runs/11ckhm1c?workspace=user-atica)|0.313|no submmision|basic tutorial code|
-|2021-05-12|Faster RCNN|hrnet|not yet config|[faster_rcnn_hrnetv2p_w40_2x_coco](https://wandb.ai/pstage3_det/gjtak/runs/2gm7klxk?workspace=user-atica)|0.XXX|no submmision|basic tutorial code|
+|2021-05-12|Faster RCNN|resnet50|[faster_rcnn_r50_fpn_1x_coco config(json)](https://github.com/bcaitech1/p3-ims-obd-hansarang/blob/main/gjtak_works/Object%20Detection/code/mmdetection_trash/work_dirs/faster_rcnn_r50_fpn_1x_coco/config.json)|[faster_rcnn_r50_fpn_1x_coco](https://wandb.ai/pstage3_det/gjtak/runs/11ckhm1c?workspace=user-atica)|0.313|no submmision|basic tutorial code|
+|2021-05-12|Faster RCNN|hrnet|[faster_rcnn_hrnetv2p_w40_2x_coco config(json)](https://github.com/bcaitech1/p3-ims-obd-hansarang/blob/main/gjtak_works/Object%20Detection/code/mmdetection_trash/work_dirs/faster_rcnn_hrnetv2p_w40_2x_coco_24/config.json)]|[faster_rcnn_hrnetv2p_w40_2x_coco](https://wandb.ai/pstage3_det/gjtak/runs/2gm7klxk?workspace=user-atica)|0.341|0.3975|basic tutorial code|
+|2021-05-13|FCOS|hrnet|not yet config|[fcos_hrnetv2p_w40_gn-head_mstrain_640-800_4x4_2x_coco](https://wandb.ai/pstage3_det/gjtak/runs/i5vlne35?workspace=user-atica)|0.19|no submmision|basic tutorial code|
