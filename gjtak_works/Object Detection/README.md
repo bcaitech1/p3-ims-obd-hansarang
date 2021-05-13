@@ -15,7 +15,9 @@
         <h4>05-13-Thur</h4>
         <p> - fcos_hrnetv2p_w40_gn-head_mstrain_640-800_4x4_2x_coco.py 실행. 결과가 이전보다 좋지 않음. hyper parameter 조정이 필요해보임</p>
         <p> - Cumstomized coding 계획 수립(Dataset ~ Train ~ Test 까지)</p>
-        <p> - cascade_rcnn_hrnetv2p_w40_20e_coco.py 실행.</p>
+        <p> - cascade_rcnn_hrnetv2p_w40_20e_coco.py 실행.<del> 오류 발생. 일단 보류</del> 해결. 용량 문제 였음.</p>
+        <p> - Yolov4 code 작성 시작. Yolov3 code 참조.</p>
+        <p> - Yolov4 code 작성 시작</p>
 </details>
 
 <details>
@@ -26,6 +28,7 @@
 |Date|Model Name|Backbone|Config file link|WanDB Link|Last bbox mAP50(val)|LB score(mAP50)|ETC|
 |----|----------|--------|----------------|----------|--------------------|---------------|---|
 |2021-05-12|Faster RCNN|resnet50|[faster_rcnn_r50_fpn_1x_coco config(json)](https://github.com/bcaitech1/p3-ims-obd-hansarang/blob/main/gjtak_works/Object%20Detection/code/mmdetection_trash/work_dirs/faster_rcnn_r50_fpn_1x_coco/config.json)|[faster_rcnn_r50_fpn_1x_coco](https://wandb.ai/pstage3_det/gjtak/runs/11ckhm1c?workspace=user-atica)|0.313|no submmision|basic tutorial code|
-|2021-05-12|Faster RCNN|hrnet|[faster_rcnn_hrnetv2p_w40_2x_coco config(json)](https://github.com/bcaitech1/p3-ims-obd-hansarang/blob/main/gjtak_works/Object%20Detection/code/mmdetection_trash/work_dirs/faster_rcnn_hrnetv2p_w40_2x_coco_24/config.json)]|[faster_rcnn_hrnetv2p_w40_2x_coco](https://wandb.ai/pstage3_det/gjtak/runs/2gm7klxk?workspace=user-atica)|0.341|0.3975|basic tutorial code|
-|2021-05-13|FCOS|hrnet|[fcos_hrnetv2p_w40_gn-head_mstrain_640-800_4x4_2x_coco config(json)](https://github.com/bcaitech1/p3-ims-obd-hansarang/blob/main/gjtak_works/Object%20Detection/code/mmdetection_trash/work_dirs/fcos_hrnetv2p_w40_gn-head_mstrain_640-800_4x4_2x_coco_24/config.json)]|[fcos_hrnetv2p_w40_gn-head_mstrain_640-800_4x4_2x_coco](https://wandb.ai/pstage3_det/gjtak/runs/i5vlne35?workspace=user-atica)|0.19|no submmision|basic tutorial code|
+|2021-05-12|Faster RCNN|hrnet|[faster_rcnn_hrnetv2p_w40_2x_coco config(json)](https://github.com/bcaitech1/p3-ims-obd-hansarang/blob/main/gjtak_works/Object%20Detection/code/mmdetection_trash/work_dirs/faster_rcnn_hrnetv2p_w40_2x_coco_24/config.json)|[faster_rcnn_hrnetv2p_w40_2x_coco](https://wandb.ai/pstage3_det/gjtak/runs/2gm7klxk?workspace=user-atica)|0.341|0.3975|basic tutorial code|
+|2021-05-13|FCOS|hrnet|[fcos_hrnetv2p_w40_gn-head_mstrain_640-800_4x4_2x_coco config(json)](https://github.com/bcaitech1/p3-ims-obd-hansarang/blob/main/gjtak_works/Object%20Detection/code/mmdetection_trash/work_dirs/fcos_hrnetv2p_w40_gn-head_mstrain_640-800_4x4_2x_coco_24/config.json)|[fcos_hrnetv2p_w40_gn-head_mstrain_640-800_4x4_2x_coco](https://wandb.ai/pstage3_det/gjtak/runs/i5vlne35?workspace=user-atica)|0.19|no submmision|basic tutorial code|
+
 |2021-05-13|Cascade RCNN|hrnet|not yet config|[cascade_rcnn_hrnetv2p_w40_20e_coco](https://wandb.ai/pstage3_det/gjtak/runs/1nqigu9z?workspace=user-atica)|not yet|no submmision|basic tutorial code|
