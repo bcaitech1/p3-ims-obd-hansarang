@@ -3,7 +3,7 @@ Image Detection
 1일차 : Baseline 코드 및 Swin-Transformer / ViT 논문 연구  
 2일차 : Baseline 코드와 Swin-Transformer 코드 참고하여 현재 task에서 사용할 수 있도록 수정중 + 모델과 백본에 대한 이해가 필요하여 공부중  
 3일차 : Baseline 코드에 Swin-Transformer 이식 및 WanDB 사용 방법 숙지  
-  
+4일차 : Cascase Mask RCNN + Swin + FPN 실험 진행중    
 =========References========     
 Model  
 ----two stage----  
