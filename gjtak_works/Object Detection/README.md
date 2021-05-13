@@ -18,6 +18,9 @@
         <p> - cascade_rcnn_hrnetv2p_w40_20e_coco.py 실행.<del> 오류 발생. 일단 보류</del> 해결. 용량 문제 였음.</p>
         <p> - Yolov4 code 작성 시작. Yolov3 code 참조.</p>
         <p> - Yolov4 code 작성 시작</p>
+        <h4>05-14-Fri</h4>
+        <p> - DetectoRS(ResNeXt-101-32x4d, single scale/multi scale) 코딩 시작</p>
+        <p> - train한 model로 inference한 결과를 볼 수 있게하는 matplotlib coding 시작. 현재 mmdetection에서 제공하는 코드는 customed class를 인식하지 못함</p>
 </details>
 
 <details>
