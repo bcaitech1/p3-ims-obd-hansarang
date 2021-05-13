@@ -19,7 +19,7 @@
         <p> - Yolov4 code 작성 시작. Yolov3 code 참조.</p>
         <p> - Yolov4 code 작성 시작</p>
         <h4>05-14-Fri</h4>
-        <p> - DetectoRS(ResNeXt-101-32x4d, single scale/multi scale) 코딩 시작</p>
+        <p> - <del>DetectoRS(ResNeXt-101-32x4d, single scale/multi scale) 코딩 시작</del>mmdetection 보류. 원본 github보면서 구조 분석 진행</p>
         <p> - train한 model로 inference한 결과를 볼 수 있게하는 matplotlib coding 시작. 현재 mmdetection에서 제공하는 코드는 customed class를 인식하지 못함</p>
 </details>
 
