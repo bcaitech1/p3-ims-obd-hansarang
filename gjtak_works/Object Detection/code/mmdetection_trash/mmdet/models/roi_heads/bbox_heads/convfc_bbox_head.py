@@ -172,6 +172,22 @@ class ConvFCBBoxHead(BBoxHead):
         bbox_pred = self.fc_reg(x_reg) if self.with_reg else None
         return cls_score, bbox_pred
 
+#detectoRS 추가
+@HEADS.register_module
+class SharedFCBBoxHead(ConvFCBBoxHead):
+
+    def __init__(self, num_fcs=2, fc_out_channels=1024, *args, **kwargs):
+        assert num_fcs >= 1
+        super(SharedFCBBoxHead, self).__init__(
+            num_shared_convs=0,
+            num_shared_fcs=num_fcs,
+            num_cls_convs=0,
+            num_cls_fcs=0,
+            num_reg_convs=0,
+            num_reg_fcs=0,
+            fc_out_channels=fc_out_channels,
+            *args,
+            **kwargs)
 
 @HEADS.register_module()
 class Shared2FCBBoxHead(ConvFCBBoxHead):
