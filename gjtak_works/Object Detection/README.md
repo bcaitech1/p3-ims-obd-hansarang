@@ -18,6 +18,9 @@
         <p> - cascade_rcnn_hrnetv2p_w40_20e_coco.py 실행.<del> 오류 발생. 일단 보류</del> 해결. 용량 문제 였음.</p>
         <p> - Yolov4 code 작성 시작. Yolov3 code 참조.</p>
         <p> - Yolov4 code 작성 시작</p>
+        <h4>05-14-Fri</h4>
+        <p> - <del>DetectoRS(ResNeXt-101-32x4d, single scale/multi scale) 코딩 시작</del>mmdetection 보류. 원본 github보면서 구조 분석 진행</p>
+        <p> - train한 model로 inference한 결과를 볼 수 있게하는 matplotlib coding 시작. 현재 mmdetection에서 제공하는 코드는 customed class를 인식하지 못함</p>
 </details>
 
 <details>
@@ -30,5 +33,4 @@
 |2021-05-12|Faster RCNN|resnet50|[faster_rcnn_r50_fpn_1x_coco config(json)](https://github.com/bcaitech1/p3-ims-obd-hansarang/blob/main/gjtak_works/Object%20Detection/code/mmdetection_trash/work_dirs/faster_rcnn_r50_fpn_1x_coco/config.json)|[faster_rcnn_r50_fpn_1x_coco](https://wandb.ai/pstage3_det/gjtak/runs/11ckhm1c?workspace=user-atica)|0.313|no submmision|basic tutorial code|
 |2021-05-12|Faster RCNN|hrnet|[faster_rcnn_hrnetv2p_w40_2x_coco config(json)](https://github.com/bcaitech1/p3-ims-obd-hansarang/blob/main/gjtak_works/Object%20Detection/code/mmdetection_trash/work_dirs/faster_rcnn_hrnetv2p_w40_2x_coco_24/config.json)|[faster_rcnn_hrnetv2p_w40_2x_coco](https://wandb.ai/pstage3_det/gjtak/runs/2gm7klxk?workspace=user-atica)|0.341|0.3975|basic tutorial code|
 |2021-05-13|FCOS|hrnet|[fcos_hrnetv2p_w40_gn-head_mstrain_640-800_4x4_2x_coco config(json)](https://github.com/bcaitech1/p3-ims-obd-hansarang/blob/main/gjtak_works/Object%20Detection/code/mmdetection_trash/work_dirs/fcos_hrnetv2p_w40_gn-head_mstrain_640-800_4x4_2x_coco_24/config.json)|[fcos_hrnetv2p_w40_gn-head_mstrain_640-800_4x4_2x_coco](https://wandb.ai/pstage3_det/gjtak/runs/i5vlne35?workspace=user-atica)|0.19|no submmision|basic tutorial code|
-
-|2021-05-13|Cascade RCNN|hrnet|not yet config|[cascade_rcnn_hrnetv2p_w40_20e_coco](https://wandb.ai/pstage3_det/gjtak/runs/1nqigu9z?workspace=user-atica)|not yet|no submmision|basic tutorial code|
+|2021-05-13|Cascade RCNN|hrnet|[cascade_rcnn_hrnetv2p_w40_20e_coco config(json)](https://github.com/bcaitech1/p3-ims-obd-hansarang/blob/main/gjtak_works/Object%20Detection/code/mmdetection_trash/work_dirs/cascade_rcnn_hrnetv2p_w40_20e_coco_24/config.json)|[cascade_rcnn_hrnetv2p_w40_20e_coco](https://wandb.ai/pstage3_det/gjtak/runs/gk8nr112?workspace=user-atica)|0.345|no submmision|basic tutorial code<br>faster_rcnn_hrnetv2p_w40_2x_coco 보다 살짝 높은 val 점수를 기록했는데 LB는 하락함|
