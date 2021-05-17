@@ -6,8 +6,8 @@ Image Detection
 4일차 : Cascase Mask RCNN + Swin + FPN 실험 진행중    
 5일차 : Colab에서도 실험할 수 있도록 실험환경 조성 중, AugoAug 활성화 실험 중, Imagenet11K로 finetune 된 ckpt에서부터 실험 중, lr 및 scheduler, Weight Decay 재설정    
 6일차 : Base size 모델 최적 파라미터 / LR 및 scheduler 조정 / Autoaug 최적 resize 탐색 / Anchor Box 추가 실험 / wbf 탐구   
-7일차 : _휴식    
-    
+7일차 : 휴식    
+8일차 : Dropout Rate 조절을 통하여 성능 향상 꾀함       
 =========References========     
 Model  
 ----two stage----  
