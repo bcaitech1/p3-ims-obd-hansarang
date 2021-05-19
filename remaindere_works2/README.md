@@ -9,6 +9,7 @@ Image Detection
 7일차 : 휴식    
 8일차 : Backbone 에서 Model로의 Proj Dropout Rate 조절을 통하여 성능 향상 꾀함  
 9일차 : HTC model을 적용   
+9일차 : HTC model을 튜닝, instaboost 적용, TTA flip 적용, Kfold 학습 시작   
 =========References========     
 Model  
 ----two stage----  
