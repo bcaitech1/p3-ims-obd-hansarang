@@ -1,0 +1,882 @@
+[33mcommit 38002bfa78e291ac44c0dd016806cff5e6d5a000[m[33m ([m[1;36mHEAD -> [m[1;32mgjtak_branch[m[33m)[m
+Author: Atica57 <gjtak578@gmail.com>
+Date:   Wed May 19 19:36:41 2021 +0000
+
+    update
+
+[33mcommit 01b089d18fff708dd0ac88a68d627e3e28517d61[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Kwangwon Song <48322490+remaindere@users.noreply.github.com>
+Date:   Mon May 17 22:52:50 2021 +0900
+
+    Update README.md
+
+[33mcommit 5f24c21c926c1567b83c77fd538b3808acc189af[m
+Author: Kwangwon Song <48322490+remaindere@users.noreply.github.com>
+Date:   Mon May 17 22:52:13 2021 +0900
+
+    Update README.md
+
+[33mcommit 3da31a93002935ad7d71291d711e139a27a3c629[m
+Merge: 0db976e 5d175ac
+Author: Atica57 <gjtak578@gmail.com>
+Date:   Mon May 17 12:25:32 2021 +0000
+
+    Merge branch 'main' of https://github.com/bcaitech1/p3-ims-obd-hansarang into main
+
+[33mcommit 0db976ee0ddc45949a3863edbcbaf02bc1cff263[m
+Merge: 537fa8b 5afd5a2
+Author: Atica57 <gjtak578@gmail.com>
+Date:   Mon May 17 12:25:06 2021 +0000
+
+    Merge branch 'gjtak_branch' into main
+
+[33mcommit 5afd5a28320ebef69b1243451829a19eb94febb1[m[33m ([m[1;31morigin/gjtak_branch[m[33m)[m
+Author: Atica57 <gjtak578@gmail.com>
+Date:   Mon May 17 12:23:34 2021 +0000
+
+    update
+
+[33mcommit 5d175ac8c59fd02ea0d460143ceb8bea48b8922f[m
+Author: Kwangwon Song <48322490+remaindere@users.noreply.github.com>
+Date:   Sun May 16 23:20:46 2021 +0900
+
+    Update README.md
+
+[33mcommit 302bdcc44e6044a7902b8eb7ca9282837ec50961[m
+Author: Kwangwon Song <48322490+remaindere@users.noreply.github.com>
+Date:   Sun May 16 23:20:35 2021 +0900
+
+    Update README.md
+
+[33mcommit 2656ae185ff85cdf46d9a876ec84b5f3ad8658c0[m
+Author: Atica57 <gjtak578@gmail.com>
+Date:   Fri May 14 20:42:47 2021 +0000
+
+    update
+
+[33mcommit 1208bd7223f15c42b6f138b482ab0fe43acd2655[m
+Author: remaindere <remaindere@gmail.com>
+Date:   Fri May 14 16:58:52 2021 +0000
+
+    upload codes, it contains base codes + customed config py files(dataset, model, backbone, neck, _base_, etc...)
+
+[33mcommit 7efe42b06524dafc5ccb675cdbc853e4af5eae4f[m
+Author: Kwangwon Song <48322490+remaindere@users.noreply.github.com>
+Date:   Sat May 15 01:53:31 2021 +0900
+
+    Update README.md
+
+[33mcommit 7558c3ea67cee83ccbdd4f00bf86604bb0bbe127[m
+Author: Kwangwon Song <48322490+remaindere@users.noreply.github.com>
+Date:   Fri May 14 19:55:54 2021 +0900
+
+    Update README.md
+
+[33mcommit 1cde27dfbf86a79a0dc3c0ca0831d63416566f8f[m
+Author: Kwangwon Song <48322490+remaindere@users.noreply.github.com>
+Date:   Fri May 14 15:16:30 2021 +0900
+
+    Update README.md
+
+[33mcommit c3acb87194b5d67b491f87766d08c339d88a9361[m
+Author: Atica57 <gjtak578@gmail.com>
+Date:   Thu May 13 18:02:26 2021 +0000
+
+    updata status
+
+[33mcommit e3eccad10723761d58988cbdb11b2990838a68f5[m
+Author: Atica57 <gjtak578@gmail.com>
+Date:   Thu May 13 17:16:15 2021 +0000
+
+    update code
+
+[33mcommit 0d371ae1c41bc4369df71fcd04b5220265981e76[m
+Author: Atica57 <gjtak578@gmail.com>
+Date:   Thu May 13 16:25:38 2021 +0000
+
+    update lab result
+
+[33mcommit 7474d433c96d87f169771e58298e3a77b0779aac[m
+Author: Atica57 <gjtak578@gmail.com>
+Date:   Thu May 13 16:20:34 2021 +0000
+
+    update lab result
+
+[33mcommit 537fa8bd31c86d29f29dda212ff2079f88570291[m
+Merge: 7e3e8ec 1b94317
+Author: Atica57 <gjtak578@gmail.com>
+Date:   Thu May 13 16:15:35 2021 +0000
+
+    Merge branch 'main' of https://github.com/bcaitech1/p3-ims-obd-hansarang into main
+
+[33mcommit 7e3e8ec997aa27fa8fddb8bcae58e3d576acb89b[m
+Merge: 65ac13d bc9e80f
+Author: Atica57 <gjtak578@gmail.com>
+Date:   Thu May 13 16:15:18 2021 +0000
+
+    Merge branch 'gjtak_branch' into main
+
+[33mcommit bc9e80f3bc6fd5d92a58521118d9e28a6e24ac44[m
+Author: Atica57 <gjtak578@gmail.com>
+Date:   Thu May 13 16:14:55 2021 +0000
+
+    update
+
+[33mcommit 1b94317c9c26e952e85c5182bed12ad4f288cafa[m
+Author: Kwangwon Song <48322490+remaindere@users.noreply.github.com>
+Date:   Thu May 13 22:41:37 2021 +0900
+
+    Update README.md
+
+[33mcommit f2b6b1b9d69393d5a151305b1d8ed688a948b687[m
+Author: Atica57 <gjtak578@gmail.com>
+Date:   Thu May 13 08:20:48 2021 +0000
+
+    update lab content
+
+[33mcommit ee08fac0f07684d782c9e6b3269deed94814d982[m
+Author: Atica <43458619+Atica57@users.noreply.github.com>
+Date:   Thu May 13 07:49:14 2021 +0900
+
+    Update README.md
+
+[33mcommit 65ac13d0d0865b866ce7e02b2b097498c5ba6f4e[m
+Merge: 0191f8f 1d3f238
+Author: Atica57 <gjtak578@gmail.com>
+Date:   Wed May 12 19:02:52 2021 +0000
+
+    Merge branch 'gjtak_branch' into main
+
+[33mcommit 1d3f2386a33c6590604df79436dd959b6ee099c2[m
+Author: Atica57 <gjtak578@gmail.com>
+Date:   Wed May 12 19:02:23 2021 +0000
+
+    update
+
+[33mcommit b99455bf7ca5d30473121c644f283fc49ff913b3[m
+Author: Atica57 <gjtak578@gmail.com>
+Date:   Wed May 12 16:14:54 2021 +0000
+
+    update format
+
+[33mcommit 533e7f5283c64bdd3e3dd429fc27f0a9d15de432[m
+Author: Atica57 <gjtak578@gmail.com>
+Date:   Wed May 12 16:13:36 2021 +0000
+
+    update format
+
+[33mcommit 0191f8fece3e390fb3a2c0375fcd884e9a2626af[m
+Merge: f39a705 e840d23
+Author: Atica57 <gjtak578@gmail.com>
+Date:   Wed May 12 15:57:07 2021 +0000
+
+    Merge branch 'main' of https://github.com/bcaitech1/p3-ims-obd-hansarang into main
+
+[33mcommit f39a705c85d1bc074dbd392f280cf6342e744fd1[m
+Merge: b4b5a90 ad8b083
+Author: Atica57 <gjtak578@gmail.com>
+Date:   Wed May 12 15:56:40 2021 +0000
+
+    Merge branch 'gjtak_branch' into main
+
+[33mcommit ad8b0839b56e05aa7a23f2a8499b3c16760d242a[m
+Author: Atica57 <gjtak578@gmail.com>
+Date:   Wed May 12 15:55:59 2021 +0000
+
+    update files
+
+[33mcommit e840d2355330ac448cfceb8950631563b9154b8b[m
+Author: Kwangwon Song <48322490+remaindere@users.noreply.github.com>
+Date:   Wed May 12 23:22:08 2021 +0900
+
+    Update README.md
+
+[33mcommit 38d77bf1e7e87af0e8de10eabb9a870973172ed0[m
+Author: Atica57 <gjtak578@gmail.com>
+Date:   Wed May 12 14:13:14 2021 +0000
+
+    update format
+
+[33mcommit fa2ff21e2f649522e163de887e8806055884028a[m
+Author: Atica57 <gjtak578@gmail.com>
+Date:   Wed May 12 14:11:50 2021 +0000
+
+    update format
+
+[33mcommit 1f2bdebde586331f9d154cd96122db3b0386f141[m
+Author: Atica57 <gjtak578@gmail.com>
+Date:   Wed May 12 14:05:30 2021 +0000
+
+    update readme file
+
+[33mcommit 85f26d18e7f7b62aa1b5a4639b5ec467fa460dda[m
+Author: Atica57 <gjtak578@gmail.com>
+Date:   Wed May 12 13:55:12 2021 +0000
+
+    update lab result
+
+[33mcommit b4b5a9063ba950d7f8d5536ed02f57967bde0106[m
+Merge: 33746a0 9a1bb04
+Author: Atica57 <gjtak578@gmail.com>
+Date:   Wed May 12 12:58:14 2021 +0000
+
+    Merge branch 'gjtak_branch' into main
+
+[33mcommit 9a1bb0423d07037f42f1f0c803ac06e6cd1c1b8d[m
+Author: Atica57 <gjtak578@gmail.com>
+Date:   Wed May 12 12:57:44 2021 +0000
+
+    update code
+
+[33mcommit 038196013faba9625f9165a2480f16f2a332bdd2[m
+Author: Atica57 <gjtak578@gmail.com>
+Date:   Wed May 12 12:29:21 2021 +0000
+
+    update default_runtime.py file
+
+[33mcommit bf5be7c0cf5d2f4bfc38284de2f878bae78d587f[m
+Author: Atica57 <gjtak578@gmail.com>
+Date:   Wed May 12 11:47:09 2021 +0000
+
+    update code
+
+[33mcommit 96932a101d2c92049911e1577a00ed9215a07140[m
+Author: Atica57 <gjtak578@gmail.com>
+Date:   Wed May 12 11:01:18 2021 +0000
+
+    create work_dir, add files(config, log file, submission)
+
+[33mcommit 33746a09d614753bb87333a3186bad1b41caeaac[m
+Merge: f302836 f58812e
+Author: Atica57 <gjtak578@gmail.com>
+Date:   Wed May 12 10:03:02 2021 +0000
+
+    Merge branch 'gjtak_branch' into main
+
+[33mcommit f58812ed550ddef893b3e2942e53bcbbc6659e37[m
+Author: Atica57 <gjtak578@gmail.com>
+Date:   Wed May 12 10:01:58 2021 +0000
+
+    change file name
+
+[33mcommit f3028362393c29be3b8c433d9b356ec09e2ae1cc[m
+Merge: 87cfc0e c342a84
+Author: Atica57 <gjtak578@gmail.com>
+Date:   Wed May 12 09:46:51 2021 +0000
+
+    Merge branch 'gjtak_branch' into main
+
+[33mcommit c342a840f3fecb35619827f034048bd356e195f8[m
+Author: Atica57 <gjtak578@gmail.com>
+Date:   Wed May 12 09:31:56 2021 +0000
+
+    add log_config-wandb setting
+
+[33mcommit 50bde4bdf5af4234de2a9d86eee2b2941cceafbd[m
+Author: Atica57 <gjtak578@gmail.com>
+Date:   Wed May 12 09:31:26 2021 +0000
+
+    add wandb setting code
+
+[33mcommit 87cfc0eeb5c00b031645a0e6394aa1f5640dffa5[m
+Merge: bf28c9c 27f2f08
+Author: Atica57 <gjtak578@gmail.com>
+Date:   Tue May 11 23:00:00 2021 +0000
+
+    Merge branch 'gjtak_branch' into main
+
+[33mcommit 27f2f08b5fdea6d8b4fed03cf7d6deaf7e897359[m
+Author: Atica57 <gjtak578@gmail.com>
+Date:   Tue May 11 22:58:16 2021 +0000
+
+    add mmcv github link
+
+[33mcommit 3dc8d6b4f722ba70c278e25053f62b2a10abc38f[m
+Author: Atica57 <gjtak578@gmail.com>
+Date:   Tue May 11 22:55:06 2021 +0000
+
+    update contents
+
+[33mcommit 0644a61c912ce4665e77a0e333852756ede21108[m
+Author: Atica57 <gjtak578@gmail.com>
+Date:   Tue May 11 18:04:14 2021 +0000
+
+    save change
+
+[33mcommit bf28c9c3351dcec86b456ef530b560bd6aedb252[m
+Merge: 5421823 84c1914
+Author: Atica57 <gjtak578@gmail.com>
+Date:   Tue May 11 17:27:58 2021 +0000
+
+    Merge branch 'main' of https://github.com/bcaitech1/p3-ims-obd-hansarang into main
+
+[33mcommit 5421823b85826c221dff4f271048c7e5adbd7d51[m
+Author: Atica57 <gjtak578@gmail.com>
+Date:   Tue May 11 17:17:40 2021 +0000
+
+    add code dir
+
+[33mcommit 84c19143fcaa1b6dbe3926688f6039a1e4156b16[m
+Merge: 31f82f1 52d976b
+Author: Atica <43458619+Atica57@users.noreply.github.com>
+Date:   Wed May 12 01:38:31 2021 +0900
+
+    Merge pull request #14 from bcaitech1/gjtak_branch
+    
+    Gjtak branch
+
+[33mcommit 52d976be5d858ba2a0538ab2d29e053755550dbb[m
+Author: Atica <43458619+Atica57@users.noreply.github.com>
+Date:   Wed May 12 01:33:10 2021 +0900
+
+    Delete gjtak_works/Object Detection/code directory
+
+[33mcommit 7dd1489bfc236fad49bea04051caef2fd6de32ec[m
+Merge: cf91c98 de4bc37
+Author: Atica57 <gjtak578@gmail.com>
+Date:   Tue May 11 15:00:49 2021 +0000
+
+    Merge branch 'gjtak_branch' of https://github.com/bcaitech1/p3-ims-obd-hansarang into gjtak_branch
+
+[33mcommit cf91c98e527a2a5c37fe9ee8602e4dd75ab5a533[m
+Author: Atica57 <gjtak578@gmail.com>
+Date:   Tue May 11 14:59:36 2021 +0000
+
+    add all files
+
+[33mcommit de4bc37134d805cdd6807e747f1c58ae2313a26a[m
+Author: Atica <43458619+Atica57@users.noreply.github.com>
+Date:   Tue May 11 23:55:25 2021 +0900
+
+    Delete gjtak_works/Object Detection/code directory
+
+[33mcommit e58baabf66ad698c071e39099268bc48c6993870[m
+Author: Atica57 <gjtak578@gmail.com>
+Date:   Tue May 11 14:53:30 2021 +0000
+
+    all commit
+
+[33mcommit 77c2b88c796eb2d5aab5717bfa7368c65a296af1[m
+Author: Atica57 <gjtak578@gmail.com>
+Date:   Tue May 11 14:49:17 2021 +0000
+
+    Add code dir to gjtak_branch
+
+[33mcommit 05e3eee12a4a1f90cf437b42f46bfba1611d426c[m
+Author: Atica57 <gjtak578@gmail.com>
+Date:   Tue May 11 14:35:14 2021 +0000
+
+    Update Lab note
+
+[33mcommit 31f82f114ffcfa09b9de3f4fa9a1c8e633799b96[m
+Author: Atica57 <gjtak578@gmail.com>
+Date:   Tue May 11 13:48:23 2021 +0000
+
+    readme commit test
+
+[33mcommit 339a0f5060a485fd754d55710572692cfbe757b2[m
+Author: Atica57 <gjtak578@gmail.com>
+Date:   Tue May 11 13:20:13 2021 +0000
+
+    commit test
+
+[33mcommit 5e883bf2720ac042be2643b6260af1a9f7a817b1[m
+Author: Atica <43458619+Atica57@users.noreply.github.com>
+Date:   Tue May 11 20:39:43 2021 +0900
+
+    Update README.md
+
+[33mcommit 94ea17bd740efa460eadba0653d520319ec41e8f[m
+Author: Atica <43458619+Atica57@users.noreply.github.com>
+Date:   Tue May 11 20:38:34 2021 +0900
+
+    Update README.md
+
+[33mcommit 4fb097fa8d085c2bd93f3e2dfb8951bbe79ae0d0[m
+Author: Atica <43458619+Atica57@users.noreply.github.com>
+Date:   Tue May 11 20:37:46 2021 +0900
+
+    Update README.md
+
+[33mcommit 17b2429f0bfa401bb65241e0af9857823b503bd3[m
+Author: Atica <43458619+Atica57@users.noreply.github.com>
+Date:   Tue May 11 20:36:45 2021 +0900
+
+    Update README.md
+
+[33mcommit 2617eb19ee6989092ef4fae31098122869b3581e[m
+Author: Kwangwon Song <48322490+remaindere@users.noreply.github.com>
+Date:   Tue May 11 19:12:06 2021 +0900
+
+    Update README.md
+
+[33mcommit e2fc42c91c369860adda34ef4e4c9da364bb19e2[m
+Author: Kwangwon Song <48322490+remaindere@users.noreply.github.com>
+Date:   Tue May 11 19:11:59 2021 +0900
+
+    Update README.md
+
+[33mcommit 73c71ca32ef419aa3b7c0b8bd9c296a56a5d9f20[m
+Author: Kwangwon Song <48322490+remaindere@users.noreply.github.com>
+Date:   Tue May 11 19:11:23 2021 +0900
+
+    Update README.md
+
+[33mcommit 8f3cdf7dfac949c24fe0c8537d27bd6e97989726[m
+Author: Kwangwon Song <48322490+remaindere@users.noreply.github.com>
+Date:   Tue May 11 19:11:07 2021 +0900
+
+    Update README.md
+
+[33mcommit ff32bcd7007a9a7f44d03b6e66956a7826a91bb7[m
+Author: Kwangwon Song <48322490+remaindere@users.noreply.github.com>
+Date:   Tue May 11 19:10:53 2021 +0900
+
+    Update README.md
+
+[33mcommit 0878522e74de0779cfd96d3ac86292271805c904[m
+Author: Kwangwon Song <48322490+remaindere@users.noreply.github.com>
+Date:   Tue May 11 19:10:06 2021 +0900
+
+    Update README.md
+
+[33mcommit d90439b7a6a2340f34b04f75b2094bb13e648ae2[m
+Author: Kwangwon Song <48322490+remaindere@users.noreply.github.com>
+Date:   Tue May 11 16:23:08 2021 +0900
+
+    Update README.md
+
+[33mcommit a388542ebbe1d1d8023888efadcb2f70aa5143e4[m
+Author: Kwangwon Song <48322490+remaindere@users.noreply.github.com>
+Date:   Tue May 11 16:22:24 2021 +0900
+
+    Update README.md
+
+[33mcommit 0822b3c27be664b93f3210150b9540e46b8473c9[m
+Author: Atica <43458619+Atica57@users.noreply.github.com>
+Date:   Tue May 11 04:09:58 2021 +0900
+
+    Update README.md
+
+[33mcommit d10baf6897fd812911d587490f5ddd03b0f5db7e[m
+Author: Atica <43458619+Atica57@users.noreply.github.com>
+Date:   Tue May 11 04:09:19 2021 +0900
+
+    Create README.md
+
+[33mcommit 8f49af7033d0a2f09673a6d2406cb06a99407092[m
+Author: Atica <43458619+Atica57@users.noreply.github.com>
+Date:   Tue May 11 01:36:36 2021 +0900
+
+    Update README.md
+
+[33mcommit feb9c224d07645da240cb35bbd823212ecda1d74[m
+Author: Atica <43458619+Atica57@users.noreply.github.com>
+Date:   Tue May 11 01:26:15 2021 +0900
+
+    Create README.md
+
+[33mcommit b223a2618a7ac5df96a8959d206f907218d1f4e2[m
+Author: Atica <43458619+Atica57@users.noreply.github.com>
+Date:   Tue May 11 01:24:02 2021 +0900
+
+    Create test.txt
+
+[33mcommit 6a46983d0ba990570aa4aef447e9dd7d1c8055ae[m
+Author: Kwangwon Song <48322490+remaindere@users.noreply.github.com>
+Date:   Tue May 11 00:11:35 2021 +0900
+
+    Update README.md
+
+[33mcommit a7117d9efb08c008b7d136e2a22b904110ba366b[m
+Author: Kwangwon Song <48322490+remaindere@users.noreply.github.com>
+Date:   Mon May 10 23:21:39 2021 +0900
+
+    Update README.md
+
+[33mcommit aeb9b73169cf0a761474a499690ec167b4eed370[m
+Author: Kwangwon Song <48322490+remaindere@users.noreply.github.com>
+Date:   Mon May 10 23:21:32 2021 +0900
+
+    Update README.md
+
+[33mcommit e0e856dcf43353b9c22f22db0ca041f7f1facafe[m
+Author: Kwangwon Song <48322490+remaindere@users.noreply.github.com>
+Date:   Mon May 10 23:20:34 2021 +0900
+
+    Update README.md
+
+[33mcommit 15d5ed1e3ba5380fb0664faa9004252396537985[m
+Author: Kwangwon Song <48322490+remaindere@users.noreply.github.com>
+Date:   Mon May 10 23:06:37 2021 +0900
+
+    Create README.md
+
+[33mcommit b90a6475fd436f5806145e7ca33c8b07f6c1d637[m
+Author: Atica <43458619+Atica57@users.noreply.github.com>
+Date:   Mon May 10 03:58:53 2021 +0900
+
+    Create test.txt
+
+[33mcommit 632e6f2b2408eb019b6f712778eaa808a80864b2[m
+Author: Atica <43458619+Atica57@users.noreply.github.com>
+Date:   Mon May 10 03:57:28 2021 +0900
+
+    Update README.md
+
+[33mcommit e0dc9667ee5a20186e7b88d72cf595628473cc9b[m
+Author: Atica <43458619+Atica57@users.noreply.github.com>
+Date:   Mon May 10 03:57:09 2021 +0900
+
+    Update README.md
+
+[33mcommit 4ffe598a39cef91230a89b29114919f6efa08331[m
+Author: Atica <43458619+Atica57@users.noreply.github.com>
+Date:   Mon May 10 03:46:01 2021 +0900
+
+    Update README.md
+
+[33mcommit f0987d3886c05175fa12cd97616c23082019ceaa[m
+Author: Atica <43458619+Atica57@users.noreply.github.com>
+Date:   Mon May 10 03:44:43 2021 +0900
+
+    Update README.md
+
+[33mcommit dbb6ea0b9b687a76240b5cd3b3283fc950d1c247[m
+Author: Atica <43458619+Atica57@users.noreply.github.com>
+Date:   Mon May 10 03:17:17 2021 +0900
+
+    Update README.md
+
+[33mcommit 1afbe9b598d574fcecace57a0fc367f88abb7a88[m
+Author: Atica <43458619+Atica57@users.noreply.github.com>
+Date:   Mon May 10 03:14:17 2021 +0900
+
+    Update README.md
+
+[33mcommit 538b445ab819089d823a038b9644c221ab1a72c3[m
+Author: Atica <43458619+Atica57@users.noreply.github.com>
+Date:   Mon May 10 03:11:47 2021 +0900
+
+    Update README.md
+
+[33mcommit 7b55f15770ea6ddb4035d1e8f148e812292317d0[m
+Author: Atica <43458619+Atica57@users.noreply.github.com>
+Date:   Mon May 10 03:05:49 2021 +0900
+
+    Update README.md
+
+[33mcommit 1309c8a4208b9dca68da318a56e6e45cbfe9e096[m
+Author: Atica <43458619+Atica57@users.noreply.github.com>
+Date:   Mon May 10 03:04:02 2021 +0900
+
+    Update README.md
+
+[33mcommit d394be36077f8985feece185c11c8adce47c9ce3[m
+Author: Atica <43458619+Atica57@users.noreply.github.com>
+Date:   Mon May 10 02:39:51 2021 +0900
+
+    Update and rename test_result_summary.md to README.md
+
+[33mcommit 3404993e7ae6002300f71612a729976b4d787f88[m
+Author: Atica <43458619+Atica57@users.noreply.github.com>
+Date:   Mon May 10 02:02:53 2021 +0900
+
+    Update test_result_summary.md
+
+[33mcommit e9ca2709f8e3d7de61a9d5ca099562d0a567f417[m
+Author: Atica <43458619+Atica57@users.noreply.github.com>
+Date:   Mon May 10 01:55:32 2021 +0900
+
+    Update test_result_summary.md
+
+[33mcommit 76133b3597f9511e7ae07e3e1948c468bcdfb63d[m
+Author: Atica <43458619+Atica57@users.noreply.github.com>
+Date:   Mon May 10 01:55:04 2021 +0900
+
+    Create test_result_summary.md
+
+[33mcommit 7735414af22f5e709f016d51fad62b2cebdf4d40[m
+Author: Atica <43458619+Atica57@users.noreply.github.com>
+Date:   Mon May 10 01:45:17 2021 +0900
+
+    Just Test
+
+[33mcommit bb2c4a2fc18f7c93508ac5f93d3ebf8005be1976[m
+Author: Kwangwon Song <48322490+remaindere@users.noreply.github.com>
+Date:   Fri May 7 23:26:46 2021 +0900
+
+    Update README.md
+
+[33mcommit a743cdd8cdf1d85c8f038a9341ecda86223631c1[m
+Author: Kwangwon Song <48322490+remaindere@users.noreply.github.com>
+Date:   Fri May 7 23:26:31 2021 +0900
+
+    Update README.md
+
+[33mcommit 5981a0b614df7051f8e21b7c229971aa6b9e91d7[m
+Author: Kwangwon Song <48322490+remaindere@users.noreply.github.com>
+Date:   Fri May 7 23:26:18 2021 +0900
+
+    Update README.md
+
+[33mcommit 2210db2058ad386e3fd3ce91ef45d5d81b3dfd7d[m
+Merge: c40c04a d45509c
+Author: 허재섭 <shjas94@outlook.kr>
+Date:   Fri May 7 02:32:52 2021 +0900
+
+    Merge pull request #13 from shjas94/main
+    
+    final report updated
+
+[33mcommit d45509c0c495635ebb04e1a475868a222ddbfa4b[m
+Author: 허재섭 <shjas94@outlook.kr>
+Date:   Fri May 7 02:30:38 2021 +0900
+
+    final report updated
+
+[33mcommit c40c04ad811d52fd9058ca13081cac85cbb15181[m
+Merge: 7c45938 6607690
+Author: Kwangwon Song <48322490+remaindere@users.noreply.github.com>
+Date:   Thu May 6 19:00:26 2021 +0900
+
+    Merge pull request #12 from bcaitech1/remaindere
+    
+    Upload final codes
+
+[33mcommit 6607690d4630e7b0a725d7885ec413de87eb4ec1[m[33m ([m[1;31morigin/remaindere[m[33m)[m
+Author: remaindere <remaindere@gmail.com>
+Date:   Thu May 6 09:59:36 2021 +0000
+
+    Upload final codes
+
+[33mcommit 7c45938237930c810c57ccea082c08c3736c54e8[m
+Author: jo-member <68108633+jo-member@users.noreply.github.com>
+Date:   Thu May 6 01:22:58 2021 +0900
+
+    Add files via upload
+
+[33mcommit ca9159578683fc3819d6d9c79d5465ba63c41ba4[m
+Author: jo-member <68108633+jo-member@users.noreply.github.com>
+Date:   Thu May 6 01:19:16 2021 +0900
+
+    Delete train.py
+
+[33mcommit 10f38f6d35dfe330d0883bffcfcdd2e8ec5b5e7b[m
+Author: jo-member <68108633+jo-member@users.noreply.github.com>
+Date:   Thu May 6 01:18:58 2021 +0900
+
+    Delete dataset.py
+
+[33mcommit d89bded2f6ca3e8e63d150f8c442333d194ef5ee[m
+Merge: c155689 d7e4f15
+Author: 허재섭 <shjas94@outlook.kr>
+Date:   Thu May 6 00:30:40 2021 +0900
+
+    Merge pull request #11 from shjas94/main
+    
+    실험 기록 로그 수정
+
+[33mcommit d7e4f159befa147152853e9e32c01380692501be[m
+Author: 허재섭 <shjas94@outlook.kr>
+Date:   Thu May 6 00:29:43 2021 +0900
+
+    실험 기록 로그 수정
+
+[33mcommit c1556891447a60a289aa38b5d324b00b3d0bd45d[m
+Merge: 206e0bc c77ac2f
+Author: Kwangwon Song <48322490+remaindere@users.noreply.github.com>
+Date:   Wed May 5 23:41:16 2021 +0900
+
+    Merge pull request #10 from bcaitech1/remaindere
+    
+    upload dropout experiments
+
+[33mcommit c77ac2fa36ba89289533a44795167ab74548a21f[m
+Author: remaindere <remaindere@gmail.com>
+Date:   Wed May 5 14:40:34 2021 +0000
+
+    upload dropout experiments
+
+[33mcommit 206e0bcc1bea0f4a42742e7cd6721ae87f09859f[m
+Merge: 3cd6ad6 4826a70
+Author: 허재섭 <shjas94@outlook.kr>
+Date:   Wed May 5 23:21:20 2021 +0900
+
+    Merge pull request #9 from shjas94/main
+    
+    report updated, added scheduler, changed backbone to effnet_b5_ns, ad…
+
+[33mcommit 4826a70c0b06a327e74f8556dd5e40097b58f1ef[m
+Author: 허재섭 <shjas94@outlook.kr>
+Date:   Wed May 5 23:20:44 2021 +0900
+
+    report updated, added scheduler, changed backbone to effnet_b5_ns, added augmentation
+
+[33mcommit 3cd6ad61faf1afe1b888d1f96291d82fef85bc09[m
+Merge: 13c625a 12e9e30
+Author: 허재섭 <shjas94@outlook.kr>
+Date:   Tue May 4 19:17:20 2021 +0900
+
+    Merge pull request #8 from shjas94/main
+    
+    updated report, added augmentation
+
+[33mcommit 12e9e30877946baa7a8dc8f63433bd4e398539e4[m
+Author: 허재섭 <shjas94@outlook.kr>
+Date:   Tue May 4 19:16:39 2021 +0900
+
+    updated report, added augmentation
+
+[33mcommit 13c625ab02f37020d4f209f9f99f40e73d81019a[m
+Author: jo-member <68108633+jo-member@users.noreply.github.com>
+Date:   Tue May 4 15:59:35 2021 +0900
+
+    Delete .DS_Store
+
+[33mcommit 33e83264ed02447cb3887f337456b106c3188402[m
+Author: 조원 <jowon@jowon-ui-MacBookAir.local>
+Date:   Tue May 4 15:58:17 2021 +0900
+
+    upload
+
+[33mcommit a09ecb5478d540bef0570a8acea50a4dcccf0ba0[m
+Merge: 5be6a3b 5bbdb3f
+Author: Kwangwon Song <48322490+remaindere@users.noreply.github.com>
+Date:   Mon May 3 23:40:11 2021 +0900
+
+    Merge pull request #7 from bcaitech1/remaindere
+    
+    weight deacy experiments - results : 1e-4 is optimal value
+
+[33mcommit 5bbdb3f915d92e85c3efc30d23a2c5f45db9cf5e[m
+Author: remaindere <remaindere@gmail.com>
+Date:   Mon May 3 14:38:18 2021 +0000
+
+    weight deacy experiments - results : 1e-4 is optimal value
+
+[33mcommit 5be6a3b3c440ccb1490337d4e84f60ef4d6de3cb[m
+Merge: cd8121f ff6cbeb
+Author: 허재섭 <shjas94@outlook.kr>
+Date:   Mon May 3 20:16:08 2021 +0900
+
+    Merge pull request #6 from shjas94/main
+    
+    added cutmix.py, report updated
+
+[33mcommit ff6cbebf525ad2875041c20ab89a29dd48ad3bda[m
+Author: 허재섭 <shjas94@outlook.kr>
+Date:   Mon May 3 20:15:15 2021 +0900
+
+    added cutmix.py, report updated
+
+[33mcommit cd8121f22060317e76aa8892e7d3c0f6f901bf22[m
+Merge: f372e11 b61a44a
+Author: 허재섭 <shjas94@outlook.kr>
+Date:   Sun May 2 22:40:20 2021 +0900
+
+    Merge pull request #5 from shjas94/main
+    
+    changed README.md layout
+
+[33mcommit b61a44a66b62fb731f946fbbf25ad1e489dff0fe[m
+Author: 허재섭 <shjas94@outlook.kr>
+Date:   Sun May 2 22:39:15 2021 +0900
+
+    changed README.md layout
+
+[33mcommit f372e11c8fd5f282753176eadd0bf2cfd477fe36[m
+Merge: 44ec2b9 b204f67
+Author: 허재섭 <shjas94@outlook.kr>
+Date:   Sun May 2 15:47:02 2021 +0900
+
+    Merge pull request #4 from shjas94/shjas94
+    
+    changed train.py(cosinelr_tmax -> 10), inference.py(logging)
+
+[33mcommit b204f677e198a8cca68fd07ffffeb0c1c6b70d08[m
+Author: 허재섭 <shjas94@outlook.kr>
+Date:   Sun May 2 15:45:09 2021 +0900
+
+    changed train.py(cosinelr_tmax -> 10), inference.py(logging)
+
+[33mcommit 44ec2b9cefa01090640ae068d5c946c647af9e4c[m
+Merge: d303f6d 95da1de
+Author: Kwangwon Song <48322490+remaindere@users.noreply.github.com>
+Date:   Sat May 1 21:32:54 2021 +0900
+
+    Merge pull request #3 from bcaitech1/remaindere
+    
+    Effb3 loss experiments added
+
+[33mcommit 95da1de5da851138a38a650fe5038555d44fbc7c[m
+Author: remaindere <remaindere@gmail.com>
+Date:   Sat May 1 12:31:51 2021 +0000
+
+    Effb3 loss experiments added
+
+[33mcommit d303f6d478114732749b4d50cac74912df0f31f4[m
+Merge: 48bcd10 50877aa
+Author: 허재섭 <shjas94@outlook.kr>
+Date:   Sat May 1 15:25:40 2021 +0900
+
+    Merge pull request #2 from shjas94/shjas94
+    
+    first commit
+
+[33mcommit 50877aaa1388e884afeb73af2cce3648cc2d26e5[m
+Author: 허재섭 <shjas94@outlook.kr>
+Date:   Sat May 1 15:23:25 2021 +0900
+
+    first commit
+
+[33mcommit 48bcd10144d43318e2bca26510a2c91d9eccc17e[m
+Merge: d852133 67bde90
+Author: Kwangwon Song <48322490+remaindere@users.noreply.github.com>
+Date:   Thu Apr 29 23:12:17 2021 +0900
+
+    Merge pull request #1 from bcaitech1/remaindere
+    
+    Remaindere
+
+[33mcommit 67bde90f8729efed744894ac768e7b1a019ab374[m
+Author: Kwangwon Song <48322490+remaindere@users.noreply.github.com>
+Date:   Thu Apr 29 23:11:08 2021 +0900
+
+    Delete utils.py
+
+[33mcommit 51c3dbc9ba67cc9e5d9d741904a1452ccfabcfaa[m
+Author: Kwangwon Song <48322490+remaindere@users.noreply.github.com>
+Date:   Thu Apr 29 23:11:03 2021 +0900
+
+    Delete requirements.txt
+
+[33mcommit eb3cc68e5823cae29bfb12ff48f35b7884b1214b[m
+Author: Kwangwon Song <48322490+remaindere@users.noreply.github.com>
+Date:   Thu Apr 29 23:10:59 2021 +0900
+
+    Delete README.md
+
+[33mcommit ada1da17746df83659bce55a081a022c73cddbbc[m
+Author: Kwangwon Song <48322490+remaindere@users.noreply.github.com>
+Date:   Thu Apr 29 23:10:53 2021 +0900
+
+    Delete 1_DeepLabV3Plus_Effb3.ipynb
+
+[33mcommit 1a470ee66eb34cbfcb1900d3790d414d6d25808c[m
+Author: remaindere <remaindere@gmail.com>
+Date:   Thu Apr 29 14:09:24 2021 +0000
+
+    which weight will be the best? -.. working
+
+[33mcommit f1218efea7ccabe31cb628fcc21bef2dff1b66e1[m
+Author: remaindere <remaindere@gmail.com>
+Date:   Wed Apr 28 14:38:29 2021 +0000
+
+    inference part is not impremented yet
+
+[33mcommit d852133fc2a98c4ec26a357f6870d8972d33019a[m
+Author: Kwangwon Song <48322490+remaindere@users.noreply.github.com>
+Date:   Wed Apr 28 23:26:21 2021 +0900
+
+    Create README.md
