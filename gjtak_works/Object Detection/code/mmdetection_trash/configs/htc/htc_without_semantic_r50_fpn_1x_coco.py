@@ -2,6 +2,13 @@ _base_ = [
     '../_base_/datasets/coco_instance.py',
     '../_base_/schedules/schedule_1x.py', '../_base_/default_runtime.py'
 ]
+
+#for coco_instance.py
+#'../_base_/datasets/coco_instance.py'
+
+#for coco_detector
+#'../_base_/datasets/coco_detection.py'
+
 # model settings
 model = dict(
     type='HybridTaskCascade',
