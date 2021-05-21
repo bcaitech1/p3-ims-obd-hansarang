@@ -13,7 +13,7 @@ import segmentation_models_pytorch as smp
 from tqdm import tqdm
 plt.rcParams['axes.grid'] = False
 
-model_path = './saved/best.pth'
+model_path = './model/final_with_multiloss/best3.pth'
 dataset_path = '../input/data'
 test_path = dataset_path + '/test.json'
 
@@ -57,8 +57,6 @@ def test(model, data_loader, device):
 
     with torch.no_grad():
         for step, (imgs, image_infos) in enumerate(tqdm(data_loader)):
-
-            # inference (512 x 512)
             outs = model(torch.stack(imgs).to(device))
             oms = torch.argmax(outs, dim=1).detach().cpu().numpy()
             # resize (256 x 256)
@@ -75,7 +73,6 @@ def test(model, data_loader, device):
             file_name_list.append([i['file_name'] for i in image_infos])
     print("End prediction.")
     file_names = [y for x in file_name_list for y in x]
-
     return file_names, preds_array
 
 
@@ -91,4 +88,4 @@ for file_name, string in zip(file_names, preds):
         ignore_index=True)
 
 # submission.csv로 저장
-submission.to_csv("./submission/resnet_ver1.csv", index=False)
+submission.to_csv("./submission/multi.csv", index=False)

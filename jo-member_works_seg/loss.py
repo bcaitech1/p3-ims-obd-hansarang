@@ -60,3 +60,17 @@ def create_criterion(criterion_name, **kwargs):
     else:
         raise RuntimeError('Unknown loss (%s)' % criterion_name)
     return criterion
+
+'''
+train_transform = A.Compose([
+                                A.HorizontalFlip(p=0.3),
+                                A.Rotate(p=0.3, limit=45),
+                                ToTensorV2()
+                                ])
+    
+    train_color_transform = A.Compose([
+        A.RandomBrightnessContrast(p=0.3)
+        # A.CLAHE(p=0.3),
+        # ToTensorV2()
+    ])
+'''

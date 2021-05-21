@@ -7,6 +7,7 @@ import torch.utils.data as data
 from pycocotools.coco import COCO
 from albumentations.pytorch import ToTensorV2
 import albumentations as A
+import glob
 
 dataset_path = '../input/data'
 anns_file_path = dataset_path + '/' + 'train.json'
@@ -73,15 +74,109 @@ class NewAugmentation:
 
     def __init__(self, mean=(0.5, 0.5, 0.5), std=(0.25, 0.25, 0.25), **args):
         self.transform = A.Compose([
-            A.Rotate(limit=30),
-            A.CLAHE(),
-            A.Cutout(num_holes=4,max_h_size=20,max_w_size=20),
             A.Normalize(mean=mean, std=std, max_pixel_value=255.0, p=1.0),
             ToTensorV2(),
         ])
+        self.train_transform = A.Compose([
+            A.HorizontalFlip(p=0.5),
+            A.Rotate(p=0.5, limit=45),
+            A.Cutout(num_holes=4, max_h_size=20, max_w_size=20),
+            A.CLAHE(),
+            A.RandomBrightnessContrast(p=0.5),
+            A.Normalize(mean=mean, std=std, max_pixel_value=255.0, p=1.0),
+            ToTensorV2()
+        ])
 
-    def __call__(self, image):
-        return self.transform(image)
+
+
+    def __call__(self, image,mode):
+        if mode=='train':
+            return self.train_transform(image)
+        elif mode=='val':
+            return self.transform(image)
+        elif mode=='test':
+            return self.transform(image)
+
+
+class PseudoTrainset(data.Dataset):
+    """COCO format"""
+    def __init__(self, data_dir, mode='train'):
+        super().__init__()
+        self.mode = mode
+        self.transform = None
+        self.coco = COCO(data_dir)
+        self.dataset_path = '../input/data/'
+        self.category_names = ['Backgroud', 'UNKNOWN', 'General trash', 'Paper', 'Paper pack', 'Metal', 'Glass',
+                               'Plastic', 'Styrofoam', 'Plastic bag', 'Battery', 'Clothing']
+
+        self.pseudo_imgs = np.load(self.dataset_path + 'pseudo_imgs_path.npy')
+        self.pseudo_masks = sorted(glob.glob(self.dataset_path + 'pseudo_masks/*.npy'))
+
+    def __getitem__(self, index: int):
+
+        ### Train data ###
+        if (index < len(self.coco.getImgIds())):
+            image_id = self.coco.getImgIds(imgIds=index)
+            image_infos = self.coco.loadImgs(image_id)[0]
+            # cv2 를 활용하여 image 불러오기
+            images = cv2.imread(os.path.join(dataset_path, image_infos['file_name']))
+            images = cv2.cvtColor(images, cv2.COLOR_BGR2RGB)
+            ann_ids = self.coco.getAnnIds(imgIds=image_infos['id'])
+            annss = self.coco.loadAnns(ann_ids)
+
+            # Load the categories in a variable
+            cat_ids = self.coco.getCatIds()
+            cats = self.coco.loadCats(cat_ids)
+
+            # masks : size가 (height x width)인 2D
+            # 각각의 pixel 값에는 "category id + 1" 할당
+            # Background = 0
+            masks = np.zeros((image_infos["height"], image_infos["width"]))
+            # Unknown = 1, General trash = 2, ... , Cigarette = 11
+            for i in range(len(annss)):
+                className = self.get_classname(annss[i]['category_id'], cats)
+                pixel_value = category_names.index(className)
+                masks = np.maximum(self.coco.annToMask(annss[i]) * pixel_value, masks)
+
+        ### Pseudo data ###
+        else:
+            index -= len(self.coco.getImgIds())
+            images = cv2.imread(self.dataset_path + self.pseudo_imgs[index])
+            images = cv2.cvtColor(images, cv2.COLOR_BGR2RGB)
+            masks = np.load(self.pseudo_masks[index])
+
+        ###  augmentation ###
+        masks = masks.astype(np.float32)
+        if self.transform is not None:
+            if self.mode == 'train':
+                transformed = self.transform.train_transform(image=images, mask=masks)
+                images = transformed["image"]
+                masks = transformed["mask"]
+            elif self.mode == 'val':
+                transformed = self.transform.transform(image=images, mask=masks)
+                images = transformed["image"]
+                masks = transformed["mask"]
+            elif self.mode == 'test':
+                transformed = self.transform.transform(image=images)
+                images = transformed["image"]
+
+        return images, masks
+
+    def get_classname(self, classID, cats):
+        for i in range(len(cats)):
+            if cats[i]['id'] == classID:
+                return cats[i]['name']
+        return "None"
+
+    def set_transform(self, transform):
+        '''
+        :param transform: 우리가 원하는 transform으로 dataset의 transform을 설정해준다
+        '''
+        self.transform = transform
+
+    def __len__(self):
+        return len(self.coco.getImgIds()) + len(self.pseudo_imgs)
+
 
 class TrashDataset(data.Dataset):
     def __init__(self, data_dir, mode='train'):
@@ -96,7 +191,7 @@ class TrashDataset(data.Dataset):
         image_infos = self.coco.loadImgs(image_id)[0]
         # cv2 를 활용하여 image 불러오기
         images = cv2.imread(os.path.join(dataset_path, image_infos['file_name']))
-        images = cv2.cvtColor(images, cv2.COLOR_BGR2RGB).astype(np.float32)
+        images = cv2.cvtColor(images, cv2.COLOR_BGR2RGB)
 
         if (self.mode in ('train', 'val')):
             ann_ids = self.coco.getAnnIds(imgIds=image_infos['id'])
@@ -115,13 +210,18 @@ class TrashDataset(data.Dataset):
                 className = self.get_classname(annss[i]['category_id'], cats)
                 pixel_value = category_names.index(className)
                 masks = np.maximum(self.coco.annToMask(annss[i]) * pixel_value, masks)
-            masks = masks.astype(np.float32)
+            masks = masks
 
             # transform -> albumentations 라이브러리 활용
             if self.transform is not None:
-                transformed = self.transform.transform(image=images, mask=masks)
-                images = transformed["image"]
-                masks = transformed["mask"]
+                if self.mode=='train':
+                    transformed = self.transform.train_transform(image=images, mask=masks)
+                    images = transformed["image"]
+                    masks = transformed["mask"]
+                elif self.mode=='val':
+                    transformed = self.transform.transform(image=images, mask=masks)
+                    images = transformed["image"]
+                    masks = transformed["mask"]
 
             return images, masks, image_infos
 
