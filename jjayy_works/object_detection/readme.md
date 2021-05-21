@@ -1,4 +1,4 @@
-All codes are in zip file
+Full codes are in zip file
 
 config file: cascade_mask_rcnn_swin_base.py   
 train file: train.ipynb   
