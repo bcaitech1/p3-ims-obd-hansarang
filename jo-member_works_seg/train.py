@@ -116,9 +116,9 @@ def collate_fn(batch):
 
 
 def train(data_dir, model_dir, args):
-    torch.backends.cudnn.benchmark = True
     train_path = data_dir + '/train.json'
     val_path = data_dir + '/val.json'
+
     seed_everything(args.seed)
     save_dir = './' + increment_path(os.path.join(model_dir, args.name))
     os.makedirs(save_dir)
@@ -147,21 +147,19 @@ def train(data_dir, model_dir, args):
     train_loader = DataLoader(
         train_dataset,
         batch_size=args.batch_size,
-        num_workers=8,
+        num_workers=4,
         shuffle=True,
         collate_fn=collate_fn,
-        drop_last=True,
-        pin_memory=True
+        drop_last=True
     )
 
     val_loader = DataLoader(
         val_dataset,
         batch_size=args.valid_batch_size,
-        num_workers=8,
+        num_workers=4,
         shuffle=False,
         collate_fn=collate_fn,
-        drop_last=True,
-        pin_memory=True
+        drop_last=True
     )
 
     # -- model
@@ -172,12 +170,11 @@ def train(data_dir, model_dir, args):
         in_channels=3,
         classes=12
     ).to(device)
-    '''
-    model_path = './model/zikgam2/best.pth'
+    model_path = './saved/last.pth'
     checkpoint = torch.load(model_path, map_location=device)
     model.load_state_dict(checkpoint)
+
     wandb.watch(model)
-    '''
     # checkpoint = torch.load(model_path, map_location=device)
     # model.load_state_dict(checkpoint)
     # model = torch.nn.DataParallel(model)
@@ -185,23 +182,23 @@ def train(data_dir, model_dir, args):
     # -- loss & metric
 
     # criterion = create_criterion(args.criterion).gamma = 0.5 # default: cross_entropy
-    #criterion1 = FocalLoss(gamma=0.5)
-    #criterion2 = segmentation_models_pytorch.losses.DiceLoss(mode='multiclass')
-    criterion2 = segmentation_models_pytorch.losses.SoftCrossEntropyLoss(smooth_factor=0.1)
+    criterion1 = FocalLoss(gamma=0.5)
+    criterion2 = segmentation_models_pytorch.losses.DiceLoss(mode='multiclass')
     #criterion3 = CutMixCrossEntropyLoss(True)
     opt_module = getattr(import_module("adamp"), args.optimizer)  # default: AdamP
     optimizer = opt_module(
         model.parameters(),
         lr=args.lr,
         betas=(0.9, 0.999),
-        weight_decay=1e-4,
+        weight_decay=1e-3,
         eps=1e-6
     )
     # optimizer = AdamP(model.parameters(), lr=args.lr, betas=(0.9, 0.999), weight_decay=1e-2)
     # optimizer = torch.optim.Adam(params=model.parameters(), lr=args.lr, weight_decay=1e-6)
-    scheduler = CosineAnnealingWarmUpRestart(optimizer, T_0=4, T_mult=1, eta_max=2e-4,  T_up=1, gamma=0.75)
-    #scheduler = StepLR(optimizer, args.lr_decay_step, gamma=0.65)
+    #scheduler = CosineAnnealingWarmUpRestart(optimizer, T_0=4, T_mult=1, eta_max=2e-4,  T_up=1, gamma=0.75)
+    scheduler = StepLR(optimizer, args.lr_decay_step, gamma=0.65)
     # -- logging
+
     best_mIoU = 0
     best_val_loss = np.inf
     for epoch in range(1, args.epochs + 1):
@@ -216,9 +213,10 @@ def train(data_dir, model_dir, args):
 
             outputs = model(images)
             optimizer.zero_grad()
-            #loss1 = criterion1(outputs, masks)
-            loss = criterion2(outputs, masks)
-            #loss = 0.75*loss1+0.25*loss2
+            loss1 = criterion1(outputs, masks)
+            loss2 = criterion2(outputs, masks)
+            #loss3 = criterion3
+            loss = 0.75*loss1+0.25*loss2
             loss.backward()
             optimizer.step()
 
@@ -244,10 +242,10 @@ def train(data_dir, model_dir, args):
                 masks = torch.stack(masks).long()
                 images, masks = images.to(device), masks.to(device)
                 outputs = model(images)
-                #loss1 = criterion1(outputs, masks)
-                loss = criterion2(outputs, masks)
+                loss1 = criterion1(outputs, masks)
+                loss2 = criterion2(outputs, masks)
                 #loss3 = criterion3(outputs, masks)
-                #loss = 0.75*loss1+0.25*loss2
+                loss = 0.75*loss1+0.25*loss2
                 val_loss_items.append(loss)
                 outputs = torch.argmax(outputs, dim=1).detach().cpu().numpy()
                 hist = add_hist(hist, masks.detach().cpu().numpy(), outputs, n_class=12)
@@ -275,11 +273,11 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     # Data and model checkpoints directories
     parser.add_argument('--seed', type=int, default=42, help='random seed (default: 42)')
-    parser.add_argument('--epochs', type=int, default=25, help='number of epochs to train (default: 28)')
+    parser.add_argument('--epochs', type=int, default=28, help='number of epochs to train (default: 28)')
     parser.add_argument('--dataset', type=str, default='TrashDataset',
                         help='dataset (default: TrashDataset)')
-    parser.add_argument('--augmentation', type=str, default='NewAugmentation',
-                        help='data augmentation type (default: NewAugmentation)')
+    parser.add_argument('--augmentation', type=str, default='NormalizedAugmentation',
+                        help='data augmentation type (default: NormalizedAugmentation)')
     # parser.add_argument("--resize", nargs="+", type=list, default=[128, 96], help='resize size for image when training')
     parser.add_argument('--batch_size', type=int, default=8, help='input batch size for training (default: 8)')
     parser.add_argument('--valid_batch_size', type=int, default=8,
@@ -290,7 +288,7 @@ if __name__ == '__main__':
     parser.add_argument('--encoder_weights', type=str, default="noisy-student",
                         help='encoder weight (default: noisy-student)')
     parser.add_argument('--optimizer', type=str, default='AdamP', help='optimizer type (default: AdamP)')
-    parser.add_argument('--lr', type=float, default=5e-6, help='learning rate (default: 5e-6)')
+    parser.add_argument('--lr', type=float, default=2.4e-6, help='learning rate (default: 5e-6)')
     parser.add_argument('--lr_decay_step', type=int, default=1,
                         help='learning rate scheduler deacy step (default: 1)')
     # parser.add_argument('--val_ratio', type=float, default=0.2, help='ratio for validaton (default: 0.2)')
@@ -300,12 +298,12 @@ if __name__ == '__main__':
                         help='how many batches to wait before logging training status')
     # parser.add_argument('--val_interval', type=int, default=150,
     # help='how many steps to calculate validataion')
-    parser.add_argument('--name', default='zikgamwithsoftloss', help='model save at {SM_MODEL_DIR}/{name}')
+    parser.add_argument('--name', default='b5_ver', help='model save at {SM_MODEL_DIR}/{name}')
 
     # Container environment
     args = parser.parse_args()
 
-    wandb.run.name = 'zikgamwithoneloss'
+    wandb.run.name = 'Focal+DiceLoss_ver2'
     wandb.config.update(args)
     print(args)
 

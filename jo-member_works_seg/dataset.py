@@ -73,28 +73,15 @@ class NewAugmentation:
 
     def __init__(self, mean=(0.5, 0.5, 0.5), std=(0.25, 0.25, 0.25), **args):
         self.transform = A.Compose([
+            A.Rotate(limit=30),
+            A.CLAHE(),
+            A.Cutout(num_holes=4,max_h_size=20,max_w_size=20),
             A.Normalize(mean=mean, std=std, max_pixel_value=255.0, p=1.0),
             ToTensorV2(),
         ])
-        self.train_transform = A.Compose([
-            A.HorizontalFlip(p=0.3),
-            A.Rotate(p=0.3, limit=45),
-            A.Cutout(num_holes=4, max_h_size=20, max_w_size=20),
-            A.CLAHE(),
-            A.RandomBrightnessContrast(p=0.3),
-            A.Normalize(mean=mean, std=std, max_pixel_value=255.0, p=1.0),
-            ToTensorV2()
-        ])
 
-
-
-    def __call__(self, image,mode):
-        if mode=='train':
-            return self.train_transform(image)
-        elif mode=='val':
-            return self.transform(image)
-        elif mode=='test':
-            return self.transform(image)
+    def __call__(self, image):
+        return self.transform(image)
 
 class TrashDataset(data.Dataset):
     def __init__(self, data_dir, mode='train'):
@@ -109,7 +96,7 @@ class TrashDataset(data.Dataset):
         image_infos = self.coco.loadImgs(image_id)[0]
         # cv2 를 활용하여 image 불러오기
         images = cv2.imread(os.path.join(dataset_path, image_infos['file_name']))
-        images = cv2.cvtColor(images, cv2.COLOR_BGR2RGB)
+        images = cv2.cvtColor(images, cv2.COLOR_BGR2RGB).astype(np.float32)
 
         if (self.mode in ('train', 'val')):
             ann_ids = self.coco.getAnnIds(imgIds=image_infos['id'])
@@ -128,18 +115,13 @@ class TrashDataset(data.Dataset):
                 className = self.get_classname(annss[i]['category_id'], cats)
                 pixel_value = category_names.index(className)
                 masks = np.maximum(self.coco.annToMask(annss[i]) * pixel_value, masks)
-            masks = masks
+            masks = masks.astype(np.float32)
 
             # transform -> albumentations 라이브러리 활용
             if self.transform is not None:
-                if self.mode=='train':
-                    transformed = self.transform.train_transform(image=images, mask=masks)
-                    images = transformed["image"]
-                    masks = transformed["mask"]
-                elif self.mode=='val':
-                    transformed = self.transform.transform(image=images, mask=masks)
-                    images = transformed["image"]
-                    masks = transformed["mask"]
+                transformed = self.transform.transform(image=images, mask=masks)
+                images = transformed["image"]
+                masks = transformed["mask"]
 
             return images, masks, image_infos
 
