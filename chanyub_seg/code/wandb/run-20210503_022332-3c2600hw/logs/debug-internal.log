@@ -1,0 +1,42 @@
+2021-05-03 02:24:31,114 INFO    MainThread:915 [internal.py:wandb_internal():91] W&B internal server running at pid: 915, started at: 2021-05-03 02:24:31.112386
+2021-05-03 02:24:31,117 DEBUG   HandlerThread:915 [handler.py:handle_request():121] handle_request: check_version
+2021-05-03 02:24:31,117 INFO    WriterThread:915 [datastore.py:open_for_write():77] open: /content/drive/MyDrive/Trash/code/wandb/run-20210503_022332-3c2600hw/run-3c2600hw.wandb
+2021-05-03 02:24:31,121 DEBUG   SenderThread:915 [sender.py:send():173] send: header
+2021-05-03 02:24:31,122 DEBUG   SenderThread:915 [sender.py:send_request():183] send_request: check_version
+2021-05-03 02:24:31,185 DEBUG   SenderThread:915 [sender.py:send():173] send: run
+2021-05-03 02:24:31,196 DEBUG   SenderThread:915 [git.py:repo():33] git repository is invalid
+2021-05-03 02:24:31,289 INFO    SenderThread:915 [sender.py:_start_run_threads():681] run started: 3c2600hw with start time 1620008670
+2021-05-03 02:24:31,289 DEBUG   SenderThread:915 [sender.py:send():173] send: summary
+2021-05-03 02:24:31,292 DEBUG   HandlerThread:915 [handler.py:handle_request():121] handle_request: run_start
+2021-05-03 02:24:31,293 INFO    SenderThread:915 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-03 02:24:33,009 DEBUG   HandlerThread:915 [meta.py:__init__():39] meta init
+2021-05-03 02:24:33,009 DEBUG   HandlerThread:915 [meta.py:__init__():53] meta init done
+2021-05-03 02:24:33,010 DEBUG   HandlerThread:915 [meta.py:probe():210] probe
+2021-05-03 02:24:33,019 DEBUG   HandlerThread:915 [git.py:repo():33] git repository is invalid
+2021-05-03 02:24:33,019 DEBUG   HandlerThread:915 [meta.py:_save_pip():57] save pip
+2021-05-03 02:24:33,023 DEBUG   HandlerThread:915 [meta.py:_save_pip():71] save pip done
+2021-05-03 02:24:33,023 DEBUG   HandlerThread:915 [meta.py:probe():252] probe done
+2021-05-03 02:24:33,029 DEBUG   SenderThread:915 [sender.py:send():173] send: files
+2021-05-03 02:24:33,030 INFO    SenderThread:915 [sender.py:_save_file():808] saving file wandb-metadata.json with policy now
+2021-05-03 02:24:33,040 DEBUG   HandlerThread:915 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-03 02:24:33,041 DEBUG   SenderThread:915 [sender.py:send_request():183] send_request: stop_status
+2021-05-03 02:24:33,103 DEBUG   SenderThread:915 [sender.py:send():173] send: config
+2021-05-03 02:24:44,713 WARNING MainThread:915 [internal.py:wandb_internal():146] Internal process interrupt: 1
+2021-05-03 02:24:48,118 DEBUG   HandlerThread:915 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-03 02:24:48,118 DEBUG   SenderThread:915 [sender.py:send_request():183] send_request: stop_status
+2021-05-03 02:25:01,149 DEBUG   SenderThread:915 [sender.py:send():173] send: stats
+2021-05-03 02:25:03,178 DEBUG   HandlerThread:915 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-03 02:25:03,178 DEBUG   SenderThread:915 [sender.py:send_request():183] send_request: stop_status
+2021-05-03 02:25:18,484 DEBUG   HandlerThread:915 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-03 02:25:18,484 DEBUG   SenderThread:915 [sender.py:send_request():183] send_request: stop_status
+2021-05-03 02:25:31,298 DEBUG   SenderThread:915 [sender.py:send():173] send: stats
+2021-05-03 02:25:33,735 DEBUG   HandlerThread:915 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-03 02:25:33,736 DEBUG   SenderThread:915 [sender.py:send_request():183] send_request: stop_status
+2021-05-03 02:25:48,811 DEBUG   HandlerThread:915 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-03 02:25:48,811 DEBUG   SenderThread:915 [sender.py:send_request():183] send_request: stop_status
+2021-05-03 02:25:49,849 WARNING MainThread:915 [internal.py:wandb_internal():146] Internal process interrupt: 2
+2021-05-03 02:25:49,850 ERROR   MainThread:915 [internal.py:wandb_internal():149] Internal process interrupted.
+2021-05-03 02:25:49,882 INFO    SenderThread:915 [sender.py:finish():912] shutting down sender
+2021-05-03 02:25:50,278 INFO    WriterThread:915 [datastore.py:close():258] close: /content/drive/MyDrive/Trash/code/wandb/run-20210503_022332-3c2600hw/run-3c2600hw.wandb
+2021-05-03 02:25:50,818 INFO    HandlerThread:915 [handler.py:finish():629] shutting down handler
+2021-05-03 02:25:50,840 INFO    MainThread:915 [internal.py:handle_exit():78] Internal process exited

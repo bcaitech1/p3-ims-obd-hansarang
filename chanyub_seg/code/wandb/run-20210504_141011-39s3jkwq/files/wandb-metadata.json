@@ -1,0 +1,21 @@
+{
+    "os": "Linux-4.19.112+-x86_64-with-Ubuntu-18.04-bionic",
+    "python": "3.7.10",
+    "heartbeatAt": "2021-05-04T14:10:13.855557",
+    "startedAt": "2021-05-04T14:10:11.328708",
+    "docker": null,
+    "gpu": "Tesla P100-PCIE-16GB",
+    "gpu_count": 1,
+    "cpu_count": 2,
+    "cuda": "11.0.228",
+    "args": [
+        "-f",
+        "/root/.local/share/jupyter/runtime/kernel-9c2c5ab3-e344-412e-bfd3-37b8ddaeace3.json"
+    ],
+    "state": "running",
+    "program": "3_aug_horizontalflip_Rotation90.ipynb",
+    "root": "/content",
+    "host": "f83b1face318",
+    "username": "root",
+    "executable": "/usr/bin/python3"
+}

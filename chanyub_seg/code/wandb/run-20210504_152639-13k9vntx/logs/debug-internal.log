@@ -1,0 +1,36 @@
+2021-05-04 15:26:40,503 INFO    MainThread:326 [internal.py:wandb_internal():91] W&B internal server running at pid: 326, started at: 2021-05-04 15:26:40.500965
+2021-05-04 15:26:40,505 DEBUG   HandlerThread:326 [handler.py:handle_request():121] handle_request: check_version
+2021-05-04 15:26:40,505 INFO    WriterThread:326 [datastore.py:open_for_write():77] open: /content/drive/My Drive/Trash/code/wandb/run-20210504_152639-13k9vntx/run-13k9vntx.wandb
+2021-05-04 15:26:40,509 DEBUG   SenderThread:326 [sender.py:send():173] send: header
+2021-05-04 15:26:40,509 DEBUG   SenderThread:326 [sender.py:send_request():183] send_request: check_version
+2021-05-04 15:26:40,559 DEBUG   SenderThread:326 [sender.py:send():173] send: run
+2021-05-04 15:26:40,598 DEBUG   SenderThread:326 [git.py:repo():33] git repository is invalid
+2021-05-04 15:26:40,685 DEBUG   HandlerThread:326 [handler.py:handle_request():121] handle_request: run_start
+2021-05-04 15:26:40,689 INFO    SenderThread:326 [sender.py:_start_run_threads():681] run started: 13k9vntx with start time 1620141999
+2021-05-04 15:26:40,689 DEBUG   SenderThread:326 [sender.py:send():173] send: summary
+2021-05-04 15:26:40,859 INFO    SenderThread:326 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-04 15:26:42,142 DEBUG   HandlerThread:326 [meta.py:__init__():39] meta init
+2021-05-04 15:26:42,143 DEBUG   HandlerThread:326 [meta.py:__init__():53] meta init done
+2021-05-04 15:26:42,143 DEBUG   HandlerThread:326 [meta.py:probe():210] probe
+2021-05-04 15:26:42,152 DEBUG   HandlerThread:326 [git.py:repo():33] git repository is invalid
+2021-05-04 15:26:42,152 DEBUG   HandlerThread:326 [meta.py:_save_pip():57] save pip
+2021-05-04 15:26:42,158 DEBUG   HandlerThread:326 [meta.py:_save_pip():71] save pip done
+2021-05-04 15:26:42,158 DEBUG   HandlerThread:326 [meta.py:probe():252] probe done
+2021-05-04 15:26:42,162 DEBUG   SenderThread:326 [sender.py:send():173] send: files
+2021-05-04 15:26:42,163 INFO    SenderThread:326 [sender.py:_save_file():808] saving file wandb-metadata.json with policy now
+2021-05-04 15:26:42,177 DEBUG   HandlerThread:326 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-04 15:26:42,177 DEBUG   SenderThread:326 [sender.py:send_request():183] send_request: stop_status
+2021-05-04 15:26:42,187 DEBUG   HandlerThread:326 [handler.py:handle_request():121] handle_request: pause
+2021-05-04 15:26:42,187 INFO    HandlerThread:326 [handler.py:handle_request_pause():516] stopping system metrics thread
+2021-05-04 15:26:42,264 DEBUG   SenderThread:326 [sender.py:send():173] send: config
+2021-05-04 15:26:42,276 DEBUG   HandlerThread:326 [handler.py:handle_request():121] handle_request: resume
+2021-05-04 15:26:42,276 INFO    HandlerThread:326 [handler.py:handle_request_resume():511] starting system metrics thread
+2021-05-04 15:26:42,385 DEBUG   SenderThread:326 [sender.py:send():173] send: stats
+2021-05-04 15:26:47,382 DEBUG   HandlerThread:326 [handler.py:handle_request():121] handle_request: pause
+2021-05-04 15:26:47,382 INFO    HandlerThread:326 [handler.py:handle_request_pause():516] stopping system metrics thread
+2021-05-04 15:26:47,419 DEBUG   SenderThread:326 [sender.py:send():173] send: stats
+2021-05-04 15:26:50,142 DEBUG   HandlerThread:326 [handler.py:handle_request():121] handle_request: resume
+2021-05-04 15:26:50,143 INFO    HandlerThread:326 [handler.py:handle_request_resume():511] starting system metrics thread
+2021-05-04 15:26:57,265 DEBUG   HandlerThread:326 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-04 15:26:57,266 DEBUG   SenderThread:326 [sender.py:send_request():183] send_request: stop_status
+2021-05-04 15:27:12,333 DEBUG   HandlerThread:326 [handler.py:handle_request():121] handle_request: stop_status

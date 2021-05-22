@@ -1,0 +1,21 @@
+{
+    "os": "Linux-4.19.112+-x86_64-with-Ubuntu-18.04-bionic",
+    "python": "3.7.10",
+    "heartbeatAt": "2021-05-04T06:22:59.382432",
+    "startedAt": "2021-05-04T06:22:56.925157",
+    "docker": null,
+    "gpu": "Tesla P100-PCIE-16GB",
+    "gpu_count": 1,
+    "cpu_count": 2,
+    "cuda": "11.0.228",
+    "args": [
+        "-f",
+        "/root/.local/share/jupyter/runtime/kernel-712b7a9e-3611-46a6-8e35-367f29137594.json"
+    ],
+    "state": "running",
+    "program": "1_aug_pan_effb0_focal_madgrad_cosLR.ipynb",
+    "root": "/content",
+    "host": "a177fc736eae",
+    "username": "root",
+    "executable": "/usr/bin/python3"
+}

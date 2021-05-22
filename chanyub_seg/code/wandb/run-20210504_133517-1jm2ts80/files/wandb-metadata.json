@@ -1,0 +1,21 @@
+{
+    "os": "Linux-4.19.112+-x86_64-with-Ubuntu-18.04-bionic",
+    "python": "3.7.10",
+    "heartbeatAt": "2021-05-04T13:35:19.990999",
+    "startedAt": "2021-05-04T13:35:17.508665",
+    "docker": null,
+    "gpu": "Tesla P100-PCIE-16GB",
+    "gpu_count": 1,
+    "cpu_count": 2,
+    "cuda": "11.0.228",
+    "args": [
+        "-f",
+        "/root/.local/share/jupyter/runtime/kernel-1687f369-07c6-4592-987c-eaf9417a74d6.json"
+    ],
+    "state": "running",
+    "program": "2_aug_CLAHE_Horizontalflip.ipynb",
+    "root": "/content",
+    "host": "97212dfd4491",
+    "username": "root",
+    "executable": "/usr/bin/python3"
+}

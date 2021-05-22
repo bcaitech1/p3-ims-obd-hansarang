@@ -1,0 +1,21 @@
+{
+    "os": "Linux-4.19.112+-x86_64-with-Ubuntu-18.04-bionic",
+    "python": "3.7.10",
+    "heartbeatAt": "2021-05-02T16:06:21.242833",
+    "startedAt": "2021-05-02T16:06:18.548916",
+    "docker": null,
+    "gpu": "Tesla V100-SXM2-16GB",
+    "gpu_count": 1,
+    "cpu_count": 4,
+    "cuda": "11.0.228",
+    "args": [
+        "-f",
+        "/root/.local/share/jupyter/runtime/kernel-0c1ed9b9-ee27-47b1-ad9d-fa968928fc2a.json"
+    ],
+    "state": "running",
+    "program": "3barrack.ipynb",
+    "root": "/content",
+    "host": "be0df0c4beba",
+    "username": "root",
+    "executable": "/usr/bin/python3"
+}
