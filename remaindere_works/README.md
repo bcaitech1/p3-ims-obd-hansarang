@@ -21,9 +21,9 @@ Sementic Segmentation
         결론 : 실험 진행중 
   
 05-04 : DeepLabV3, 즉 Decoder 단의 Conv layer 뒤와 최종 Proj layer에 dropout 을 추가   
-        Backbone에서 떼와서 Encoder의 각 부분으로 사용하는 각 layer의 뒷단에 dropout 을 추가하여 성능 향상을 꾀함.  
+        <t>Backbone에서 떼와서 Encoder의 각 부분으로 사용하는 각 layer의 뒷단에 dropout 을 추가하여 성능 향상을 꾀함.  
         5일 저녁, 지금까지 연구한 모델의 성능이 팀 내 최고 성능을 보여주는 조원님의 모델에 비해 낮아 비슷한 성능을 보여 주는 재섭님의 코드에 현재까지의 실험으로 밝혀진 최적 loss, dropout을 적용. 
-        하였음. train-weight과 Weight Decay의 경우 해당 실험 진행한 날일로부터 모든 조원분들이 이미 적용하고 있었으므로 그대로 사용하였음.  
+        train-weight과 Weight Decay의 경우 해당 실험 진행한 날일로부터 모든 조원분들이 이미 적용하고 있었으므로 그대로 사용하였음.   
         결론 : p = 0.05, 0.1, 0.15, 0.2, 0.3, 0.5 값들을 Conv 뒷단 및 Encoder의 각 Layer / p = 0.1, 0.3, 0.5, 0.7 값들을 Proj 단에 붙여 실험한 결과,   
               Encoder에 Dropout Layer 부착은 모든 값에 대해 성능이 하락하였으며 Decoder의 각 Conv Layer 뒷단에 0.05, Proj에 0.3를 사용하는 것이 성능 향상을 이루었음.  
   
