@@ -32,9 +32,12 @@
 
 ### DeepLabV3
 
-| Date | Model Name | Encoder | Arguments | WanDB Link | mIoU(latest) | LB score |
-| ---- | ---------- | ------- | --------- | ---------- | ------------ | -------- |
-|      |            |         |           |            |              |          |
-|      |            |         |           |            |              |          |
-|      |            |         |           |            |              |          |
+| Date       | Model Name | Encoder         | Arguments                                                    | WanDB Link                                                   | mIoU(latest) | LB score      |
+| ---------- | ---------- | --------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------ | ------------- |
+| 2021-05-03 | DeepLabV3  | efficientnet-b4 | batch size(train/test) = 4/5<br/>pretrained = imagenet<br/>optimizer = adam(learning rate = 1e-4, weight decay = 1e-6)<br/>scheduler = X<br/>criterion = CrossEntropy()<br/>epoch=10 | [efficientnet-b4](https://wandb.ai/pstage12/gjtak/runs/heje5fhr?workspace=user-atica) | 0.4243       | no submission |
+| 2021-05-08 | DeepLabV3  | efficientnet-b4 | [k fold1]<br/>batch size(train/test) = 3/5<br/>pretrained = imagenet<br/>optimizer = adam(learning rate = 1e-4, weight decay = 1e-6)<br/>scheduler = CosineAnnaealingLR(T_max = 50, eta_min= 0)<br/>criterion = CrossEntropy()<br />epoch=5 | [kfold1](https://wandb.ai/pstage12/gjtak/runs/3rbiidl3?workspace=user-atica) | 0.4249       | no submission |
+| 2021-05-08 | DeepLabV3  | efficientnet-b4 | [k fold2]<br/>batch size(train/test) = 3/5<br/>pretrained = imagenet<br/>optimizer = adam(learning rate = 1e-4, weight decay = 1e-6)<br/>scheduler = CosineAnnaealingLR(T_max = 50, eta_min= 0)<br/>criterion = CrossEntropy()<br />epoch=5 | [kfold2](https://wandb.ai/pstage12/gjtak/runs/7sso4jrd?workspace=user-atica) | 0.4231       | no submission |
+| 2021-05-08 | DeepLabV3  | efficientnet-b4 | [k fold3]<br/>batch size(train/test) = 3/5<br/>pretrained = imagenet<br/>optimizer = adam(learning rate = 1e-4, weight decay = 1e-6)<br/>scheduler = CosineAnnaealingLR(T_max = 50, eta_min= 0)<br/>criterion = CrossEntropy()<br />epoch=5 | [kfold3](https://wandb.ai/pstage12/gjtak/runs/2p64slhb?workspace=user-atica) | 0.4425       | no submission |
+| 2021-05-08 | DeepLabV3  | efficientnet-b4 | [k fold4]<br/>batch size(train/test) = 3/5<br/>pretrained = imagenet<br/>optimizer = adam(learning rate = 1e-4, weight decay = 1e-6)<br/>scheduler = CosineAnnaealingLR(T_max = 50, eta_min= 0)<br/>criterion = CrossEntropy()<br />epoch=5 | [kfold4](https://wandb.ai/pstage12/gjtak/runs/1fiqltll?workspace=user-atica) | 0.4317       | no submission |
+| 2021-05-08 | DeepLabV3  | efficientnet-b4 | [k fold5]<br/>batch size(train/test) = 3/5<br/>pretrained = imagenet<br/>optimizer = adam(learning rate = 1e-4, weight decay = 1e-6)<br/>scheduler = CosineAnnaealingLR(T_max = 50, eta_min= 0)<br/>criterion = CrossEntropy()<br />epoch=5 | [kfold5](https://wandb.ai/pstage12/gjtak/runs/3s09ekad?workspace=user-atica) | 0.4403       | no submission |
 
