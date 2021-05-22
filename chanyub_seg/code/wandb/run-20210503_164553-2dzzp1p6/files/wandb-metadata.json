@@ -1,0 +1,21 @@
+{
+    "os": "Linux-4.19.112+-x86_64-with-Ubuntu-18.04-bionic",
+    "python": "3.7.10",
+    "heartbeatAt": "2021-05-03T16:45:56.244274",
+    "startedAt": "2021-05-03T16:45:53.714451",
+    "docker": null,
+    "gpu": "Tesla P100-PCIE-16GB",
+    "gpu_count": 1,
+    "cpu_count": 2,
+    "cuda": "11.0.228",
+    "args": [
+        "-f",
+        "/root/.local/share/jupyter/runtime/kernel-3c9b560c-ac5f-441a-8780-dadb1c9fc83a.json"
+    ],
+    "state": "running",
+    "program": "pan_resnet101_imagenet_focal_adamp_coswarmLR.ipynb",
+    "root": "/content",
+    "host": "cdc4d5ebd07c",
+    "username": "root",
+    "executable": "/usr/bin/python3"
+}

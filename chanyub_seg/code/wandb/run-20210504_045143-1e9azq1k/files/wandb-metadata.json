@@ -1,0 +1,21 @@
+{
+    "os": "Linux-4.19.112+-x86_64-with-Ubuntu-18.04-bionic",
+    "python": "3.7.10",
+    "heartbeatAt": "2021-05-04T04:51:49.333350",
+    "startedAt": "2021-05-04T04:51:43.483831",
+    "docker": null,
+    "gpu": "Tesla P100-PCIE-16GB",
+    "gpu_count": 1,
+    "cpu_count": 2,
+    "cuda": "11.0.228",
+    "args": [
+        "-f",
+        "/root/.local/share/jupyter/runtime/kernel-9f717eee-d89a-4ae6-8076-63901f19fb2b.json"
+    ],
+    "state": "running",
+    "program": "18_DeepLabV3_Effb7.ipynb",
+    "root": "/content",
+    "host": "0055dafdedeb",
+    "username": "root",
+    "executable": "/usr/bin/python3"
+}
