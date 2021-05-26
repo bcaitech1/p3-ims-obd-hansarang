@@ -1,0 +1,19 @@
+classes = ("UNKNOWN", "General trash", "Paper", "Paper pack", "Metal", "Glass", 
+           "Plastic", "Styrofoam", "Plastic bag", "Battery", "Clothing")
+PREFIX = '../../input/data/'
+# dataset 바꾸기
+cfg.data.train.classes = classes
+cfg.data.train.img_prefix = PREFIX
+cfg.data.train.ann_file = PREFIX + 'train.json'
+cfg.data.train.pipeline[2]['img_scale'] = (512, 512)
+
+cfg.data.val.classes = classes
+cfg.data.val.img_prefix = PREFIX
+cfg.data.val.ann_file = PREFIX + 'val.json'
+cfg.data.val.pipeline[1]['img_scale'] = (512, 512)
+
+cfg.data.test.classes = classes
+cfg.data.test.img_prefix = PREFIX
+cfg.data.test.ann_file = PREFIX + 'test.json'
+cfg.data.test.pipeline[1]['img_scale'] = (512, 512)
+cfg.data.samples_per_gpu = 2
