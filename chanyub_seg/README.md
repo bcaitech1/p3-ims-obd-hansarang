@@ -11,20 +11,17 @@
 - 평가 방법
   - Test set의 mIoU
 ---
-## 최종 모델
+## 앙상블 전 내 모델
 - model : PANnet(encoder=efficientnet-b5)
 - optimizer : madgrad
 - Loss : FocalLoss
 - lr_scheduler : cosLR
 ![image](https://user-images.githubusercontent.com/54899906/120745258-bbd36a80-c537-11eb-8d67-c9cc9eff58a1.png)
 ---
-## 가설과 검증
-- 성공 목록
-  - 데이터의 불균형이 존재하는 task라고 판단하여 focalLoss를 사용
-  - 팀원들과의 앙상블을 위한 코드를 작성
-  - 다양한 optimizer와 lr scheduler의 조합으로 PANnet의 성능 향상
-- 실패 목록
-  - 내가 만든 PANnet 모델이 앙상블에 있어서 큰 도움이 되지 못했다. ㅠㅠ
+## 나의 시도
+- 데이터의 불균형이 존재하는 task라고 판단하여 focalLoss를 사용
+- 팀원들과의 앙상블을 위한 코드를 작성
+- 다양한 optimizer와 lr scheduler의 조합으로 PANnet의 성능 향상
 ---
 ## 아쉬운 점
 - pseudo labelling이 이번 task에서 성능향상에 매우 효과적이었다는 것을 너무 늦게 알았다.
