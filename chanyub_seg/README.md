@@ -22,6 +22,8 @@
 - 데이터의 불균형이 존재하는 task라고 판단하여 focalLoss를 사용
 - 팀원들과의 앙상블을 위한 코드를 작성
 - 다양한 optimizer와 lr scheduler의 조합으로 PANnet의 성능 향상
+- lr scheduler에 따른 inference 결과 시각화 실험 : https://www.notion.so/lr-scheduler-737322bd3509423a8816bea9a2bc5b8d
+- 
 ---
 ## 아쉬운 점
 - pseudo labelling이 이번 task에서 성능향상에 매우 효과적이었다는 것을 너무 늦게 알았다.
