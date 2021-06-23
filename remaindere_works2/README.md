@@ -1,5 +1,6 @@
-# P3 stage  
-# Image Detection
+# Image Detection  
+
+## 개발 일지
   
 1일차: Baseline 코드 및 Swin-Transformer / ViT 논문 연구  
   
