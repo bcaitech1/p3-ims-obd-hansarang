@@ -1,6 +1,6 @@
-# 한사랑개발회 T1104_송광원  
+# Sementic Segmentation  
   
-## Sementic Segmentation 간이 기록  
+## 개발 일지  
   
 04-28  
 smp Library 이용하여 Model DeepLabV3+ // Backbone Eff b3 고정 이후 Loss에 대해 Test  
